@@ -154,7 +154,7 @@ class Projeto_Final:
         self.mostrar5 = Image.open('muito ativo.jpg').resize((150,100))
         self.plotar5 = ImageTk.PhotoImage(self.mostrar5)
         self.imagem5 = tk.Button(self.pagina2, image = self.plotar5)
-        self.imagem5.grid(row = 5, column =2, columnspan = 2 , sticky = 'nsew')
+        self.imagem5.grid(row = 5, column =2, sticky = 'nsew')
     
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 0, sticky = 'nsew')
@@ -173,7 +173,7 @@ class Projeto_Final:
         self.legenda4.configure(fg = 'black', text = 'muito ativo')
         
         self.legenda5 = tk.Label(self.pagina2)
-        self.legenda5.grid(row = 6, column = 2, columnspan = 2, sticky = 'nsew')
+        self.legenda5.grid(row = 6, column = 2, sticky = 'nsew')
         self.legenda5.configure(fg = 'black', text = 'extremamente ativo')
         
         self.botao_voltar_pag1 = ttk.Button(self.pagina2,width=20)
