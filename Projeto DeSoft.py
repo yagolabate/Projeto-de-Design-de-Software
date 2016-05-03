@@ -182,9 +182,103 @@ class Projeto_Final:
         self.botao_voltar_pag1.configure(command=self.pagina1.tkraise)
         
         
-    
+        #terceira frame
         
-
+        self.pagina3 = tk.Frame(self.window)
+        
+        self.pagina3.rowconfigure(0, minsize = 75)
+        self.pagina3.rowconfigure(1, minsize = 75)
+        self.pagina3.rowconfigure(2, minsize = 75)
+        self.pagina3.rowconfigure(3, minsize = 75)
+        self.pagina3.rowconfigure(4, minsize = 75)
+        self.pagina3.rowconfigure(5, minsize = 75)
+        self.pagina3.rowconfigure(6, minsize = 150)
+        self.pagina3.columnconfigure(0, minsize = 150)
+        self.pagina3.columnconfigure(1, minsize = 150)
+        self.pagina3.columnconfigure(2, minsize = 150)
+        self.pagina3.columnconfigure(3, minsize = 150)
+        self.pagina3.columnconfigure(4, minsize = 150)
+        self.pagina3.columnconfigure(5, minsize = 150)
+        
+        
+        self.frase_1 = ttk.Label(self.pagina3)
+        self.frase_1.grid(row = 0, column = 0, sticky = 'nsw')
+        self.frase_1.configure(text = "Quantidades a serem consumidas:")
+        
+        self.carboidrato = ttk.Label(self.pagina3)
+        self.carboidrato.grid(row = 1, column = 0, sticky = 'nse')
+        self.carboidrato.configure(text = "Carboidratos:")
+        
+        self.total_carbo = ttk.Label(self.pagina3)
+        self.total_carbo.grid(row = 1, column = 1, sticky = 'nswe')
+        self.total_carbo.configure(text= self.CalculaCarbo())
+        
+        self.proteina = ttk.Label(self.pagina3)
+        self.proteina.grid(row = 1, column = 2, sticky = 'nse')
+        self.proteina.configure(text = "Proteínas:")
+        
+        self.total_proteina = ttk.Label(self.pagina3)
+        self.total_proteina.grid(row = 1, column = 3, sticky = 'nswe')
+        self.total_proteina.configure(text= self.CalculaProteina())
+        
+        self.gordura = ttk.Label(self.pagina3)
+        self.gordura.grid(row = 1, column = 4, sticky = 'nse')
+        self.gordura.configure(text = "Gorduras:")
+        
+        self.total_gordura = ttk.Label(self.pagina3)
+        self.total_gordura.grid(row = 1, column = 5, sticky = 'nswe')
+        self.total_gordura.configure(text= self.CalculaGordura())
+        
+        self.frase_2 = ttk.Label(self.pagina3)
+        self.frase_2.grid(row = 2, column = 0, sticky = 'nsw')
+        self.frase_2.configure(text = "Quantidades já consumidas:")
+        
+        self.carboidrato_2 = ttk.Label(self.pagina3)
+        self.carboidrato_2.grid(row = 3, column = 0, sticky = 'nse')
+        self.carboidrato_2.configure(text = "Carboidratos:")
+        
+        self.consumo_carbo = ttk.Label(self.pagina3)
+        self.consumo_carbo.grid(row = 3, column = 1, sticky = 'nswe')
+        self.consumo_carbo.configure(text= self.ConsumoCarbo())
+        
+        self.proteina_2 = ttk.Label(self.pagina3)
+        self.proteina_2.grid(row = 3, column = 2, sticky = 'nse')
+        self.proteina_2.configure(text = "Proteínas:")
+        
+        self.consumo_proteina = ttk.Label(self.pagina3)
+        self.consumo_proteina.grid(row = 3, column = 3, sticky = 'nswe')
+        self.consumo_proteina.configure(text= self.ConsumoProteina())
+        
+        self.gordura_2 = ttk.Label(self.pagina3)
+        self.gordura_2.grid(row = 3, column = 4, sticky = 'nse')
+        self.gordura_2.configure(text = "Gorduras:")
+        
+        self.consumo_gordura = ttk.Label(self.pagina3)
+        self.consumo_gordura.grid(row = 3, column = 5, sticky = 'nswe')
+        self.consumo_gordura.configure(text= self.ConsumoGordura())
+        
+        self.frase_3 = ttk.Label(self.pagina3)
+        self.frase_3.grid(row = 4, column = 0, sticky = 'nsw')
+        self.frase_3.configure(text = "Alimentos consumidos:")
+        
+        self.ad_alimento = ttk.Label(self.pagina3)
+        self.ad_alimento.grid(row = 5, column = 0, columnspan = 1, sticky = 'nswe')
+        self.ad_alimento.configure(text = "Adicione um alimento:")
+        
+        self.entry_ad = ttk.Entry(self.pagina3)
+        self.entry_ad.grid(row = 5, column = 1)
+        
+        self.quan_alimento = ttk.Label(self.pagina3)
+        self.quan_alimento.grid(row = 5, column = 3, columnspan = 1, sticky = 'nswe')
+        self.quan_alimento.configure(text = "Quantidade do alimento(g):")
+        
+        self.entry_quan = ttk.Entry(self.pagina3)
+        self.entry_quan.grid(row = 5, column = 4)
+        
+        self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = 'vertical')
+        self.alimentos_ad.grid(row = 6, column = 0, columnspan = 5, sticky = 'nswe')
+        
+    
         
         #Chamando a primeira frame
         self.pagina1.tkraise() 
@@ -199,6 +293,24 @@ class Projeto_Final:
     def clicar_Emagrecer(self):
         self.objetivo_escolhido = 2
         self.pagina2.tkraise()
+        
+    def CalculaCarbo(self):
+        return 0
+        
+    def CalculaProteina(self):
+        return 0
+        
+    def CalculaGordura(self):
+        return 0
+        
+    def ConsumoCarbo(self):
+        return 0
+        
+    def ConsumoProteina(self):
+        return 0
+        
+    def ConsumoGordura(self):
+        return 0
         
         
         
