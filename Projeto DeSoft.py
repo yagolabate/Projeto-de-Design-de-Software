@@ -138,13 +138,13 @@ class Projeto_Final:
         self.mostrar2 = Image.open('levemente.jpg').resize((150,100))
         self.plotar2 = ImageTk.PhotoImage(self.mostrar2)
         self.imagem2 = tk.Button(self.pagina2, image = self.plotar2)
-        self.imagem2.grid(row = 3, column = 3, sticky = 'nsew')
+        self.imagem2.grid(row = 3, column = 2, columnspan =2, sticky = 'nsew')
         
         
         self.mostrar3 = Image.open('ativo.jpg').resize((150,100))
         self.plotar3 = ImageTk.PhotoImage(self.mostrar3)        
         self.imagem3 = tk.Button(self.pagina2, image = self.plotar3)
-        self.imagem3.grid(row = 3, column = 7, sticky = 'nsew')
+        self.imagem3.grid(row = 3, column = 6, columnspan =2, sticky = 'nsew')
         
         self.mostrar4 = Image.open('bastante ativo.jpg').resize((150,100))
         self.plotar4 = ImageTk.PhotoImage(self.mostrar4)
@@ -153,19 +153,19 @@ class Projeto_Final:
         
         self.mostrar5 = Image.open('muito ativo.jpg').resize((150,100))
         self.plotar5 = ImageTk.PhotoImage(self.mostrar5)
-        self.imagem5 = tk.Label(self.pagina2, image = self.plotar5)
-        self.imagem5.grid(row = 5, column =3 , sticky = 'nsew')
+        self.imagem5 = tk.Button(self.pagina2, image = self.plotar5)
+        self.imagem5.grid(row = 5, column =2, columnspan = 2 , sticky = 'nsew')
     
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 0, sticky = 'nsew')
         self.legenda1.configure(fg = 'black', text = 'sedentário')
         
         self.legenda2 = tk.Label(self.pagina2)
-        self.legenda2.grid(row = 4, column = 3, sticky = 'nsew')
+        self.legenda2.grid(row = 4, column = 2, columnspan = 2, sticky = 'nsew')
         self.legenda2.configure(fg = 'black', text = 'levemente ativo')
         
         self.legenda3 = tk.Label(self.pagina2)
-        self.legenda3.grid(row = 4, column = 7, sticky = 'nsew')
+        self.legenda3.grid(row = 4, column = 6, columnspan =2, sticky = 'nsew')
         self.legenda3.configure(fg = 'black', text = 'moderamente ativo')
         
         self.legenda4 = tk.Label(self.pagina2)
@@ -173,11 +173,11 @@ class Projeto_Final:
         self.legenda4.configure(fg = 'black', text = 'muito ativo')
         
         self.legenda5 = tk.Label(self.pagina2)
-        self.legenda5.grid(row = 6, column = 3, sticky = 'nsew')
+        self.legenda5.grid(row = 6, column = 2, columnspan = 2, sticky = 'nsew')
         self.legenda5.configure(fg = 'black', text = 'extremamente ativo')
         
         self.botao_voltar_pag1 = ttk.Button(self.pagina2,width=20)
-        self.botao_voltar_pag1.grid(row=6,column=7,sticky='se')
+        self.botao_voltar_pag1.grid(row=6,column=6,sticky='se')
         self.botao_voltar_pag1.configure(text="Voltar")
         self.botao_voltar_pag1.configure(command=self.pagina1.tkraise)
         
