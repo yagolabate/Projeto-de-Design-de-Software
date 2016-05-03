@@ -129,26 +129,32 @@ class Projeto_Final:
         self.lfrase.configure(fg="black", text="Selecione seu nivel de atividade fisica:")
         
         
-        self.mostrar1 = Image.open('emagrecer.jpg').resize((150,100))
+        self.mostrar1 = Image.open('sedentarismo.jpg').resize((150,100))
         self.plotar1 = ImageTk.PhotoImage(self.mostrar1)
         self.imagem1 = ttk.Button(self.pagina2,image = self.plotar1)
         self.imagem1.grid(row = 3, column = 0, sticky = 'nsew')
         
-        self.imagem2 = tk.Label(self.pagina2)
+        
+        self.mostrar2 = Image.open('levemente.jpg').resize((150,100))
+        self.plotar2 = ImageTk.PhotoImage(self.mostrar2)
+        self.imagem2 = tk.Button(self.pagina2, image = self.plotar2)
         self.imagem2.grid(row = 3, column = 3, sticky = 'nsew')
-        self.imagem2.configure(fg='red', text = 'imagem2')
         
-        self.imagem3 = tk.Label(self.pagina2)
+        
+        self.mostrar3 = Image.open('ativo.jpg').resize((150,100))
+        self.plotar3 = ImageTk.PhotoImage(self.mostrar3)        
+        self.imagem3 = tk.Button(self.pagina2, image = self.plotar3)
         self.imagem3.grid(row = 3, column = 7, sticky = 'nsew')
-        self.imagem3.configure(fg='purple', text = 'imagem3')
         
-        self.imagem4 = tk.Label(self.pagina2)
+        self.mostrar4 = Image.open('bastante ativo.jpg').resize((150,100))
+        self.plotar4 = ImageTk.PhotoImage(self.mostrar4)
+        self.imagem4 = tk.Button(self.pagina2, image = self.plotar4)
         self.imagem4.grid(row = 5, column = 0, sticky = 'nsew')
-        self.imagem4.configure(fg='orange', text = 'imagem4')
         
-        self.imagem5 = tk.Label(self.pagina2)
+        self.mostrar5 = Image.open('muito ativo.jpg').resize((150,100))
+        self.plotar5 = ImageTk.PhotoImage(self.mostrar5)
+        self.imagem5 = tk.Label(self.pagina2, image = self.plotar5)
         self.imagem5.grid(row = 5, column =3 , sticky = 'nsew')
-        self.imagem5.configure(fg='green', text = 'imagem5')
     
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 0, sticky = 'nsew')
