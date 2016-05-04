@@ -282,6 +282,8 @@ class Projeto_Final:
         
         #Chamando a primeira frame
         self.pagina1.tkraise() 
+        
+        
        
     def iniciar(self):
         self.window.mainloop()
