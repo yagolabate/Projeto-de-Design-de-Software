@@ -3,6 +3,8 @@ import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import ttk
 
+import ToolTip as ttp
+
 
 
 class Projeto_Final:
@@ -162,22 +164,28 @@ class Projeto_Final:
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 1, sticky = '')
         self.legenda1.configure(fg = 'black', text = 'sedentário')
+        ttp.CreateToolTip(self.legenda1, 'Pouco ou nenhum exercício diário.')
+                       
         
         self.legenda2 = tk.Label(self.pagina2)
         self.legenda2.grid(row = 4, column = 3, sticky = '')
         self.legenda2.configure(fg = 'black', text = 'levemente ativo')
+        ttp.CreateToolTip(self.legenda2, 'Exercício leve/1 a 3 dias por semana.')
         
         self.legenda3 = tk.Label(self.pagina2)
         self.legenda3.grid(row = 4, column = 5, sticky = '')
         self.legenda3.configure(fg = 'black', text = 'moderamente ativo')
+        ttp.CreateToolTip(self.legenda3, 'Exercício moderado/3 a 5 dias por semana')
         
         self.legenda4 = tk.Label(self.pagina2)
         self.legenda4.grid(row = 6, column = 1, sticky = 'nsew')
         self.legenda4.configure(fg = 'black', text = 'muito ativo')
+        ttp.CreateToolTip(self.legenda4, 'Exercício intenso/ 6 a 7 dias na semana')        
         
         self.legenda5 = tk.Label(self.pagina2)
         self.legenda5.grid(row = 6, column = 3, sticky = 'nsew')
         self.legenda5.configure(fg = 'black', text = 'extremamente ativo')
+        ttp.CreateToolTip(self.legenda5, 'Exercício intenso todos os dias da semana ou com treinos bi-diários')
         
         self.botao_voltar_pag1 = ttk.Button(self.pagina2,width=20)
         self.botao_voltar_pag1.grid(row=6,column=5,sticky='se')
@@ -337,7 +345,7 @@ class Projeto_Final:
     def ConsumoGordura(self):
         return 0
         
-        
+
         
         
     
