@@ -3,6 +3,8 @@ import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import ttk
 
+import ToolTip as ttp
+
 
 
 class Projeto_Final:
@@ -157,24 +159,30 @@ class Projeto_Final:
         self.imagem5.grid(row = 5, column =3, sticky = 'nsew')
     
         self.legenda1 = tk.Label(self.pagina2)
-        self.legenda1.grid(row = 4, column = 1, sticky = 'nsew')
+        self.legenda1.grid(row = 4, column = 1, sticky = '')
         self.legenda1.configure(fg = 'black', text = 'sedentário')
+        ttp.CreateToolTip(self.legenda1, 'É a pessoa que não se movimenta muito, que anda e/ou se exercita pouco.')
+                       
         
         self.legenda2 = tk.Label(self.pagina2)
-        self.legenda2.grid(row = 4, column = 3, sticky = 'nsew')
+        self.legenda2.grid(row = 4, column = 3, sticky = '')
         self.legenda2.configure(fg = 'black', text = 'levemente ativo')
+        ttp.CreateToolTip(self.legenda2, 'É a pessoa que pratica atividades físicas por volta de uma vez por semana.')
         
         self.legenda3 = tk.Label(self.pagina2)
-        self.legenda3.grid(row = 4, column = 5, sticky = 'nsew')
+        self.legenda3.grid(row = 4, column = 5, sticky = '')
         self.legenda3.configure(fg = 'black', text = 'moderamente ativo')
+        ttp.CreateToolTip(self.legenda3, 'É a pessoa que pratica ativadades fisicas cerca de tres vezes por semana')
         
         self.legenda4 = tk.Label(self.pagina2)
         self.legenda4.grid(row = 6, column = 1, sticky = 'nsew')
         self.legenda4.configure(fg = 'black', text = 'muito ativo')
+        ttp.CreateToolTip(self.legenda4, 'É a pessoa que pratica atividades fisicas por volta de cinco dias por semana')        
         
         self.legenda5 = tk.Label(self.pagina2)
         self.legenda5.grid(row = 6, column = 3, sticky = 'nsew')
         self.legenda5.configure(fg = 'black', text = 'extremamente ativo')
+        ttp.CreateToolTip(self.legenda5, 'Pratica atividades físicas todos os dias')
         
         self.botao_voltar_pag1 = ttk.Button(self.pagina2,width=20)
         self.botao_voltar_pag1.grid(row=6,column=5,sticky='se')
@@ -312,7 +320,7 @@ class Projeto_Final:
     def ConsumoGordura(self):
         return 0
         
-        
+
         
         
     
