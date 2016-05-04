@@ -21,6 +21,7 @@ class Projeto_Final:
         
         self.objetivo_escolhido = 0
         
+        self.window.iconbitmap(self, default='ganhar-massa.ico')
         # primeiro frame
         
         self.pagina1 = tk.Frame(self.window)
