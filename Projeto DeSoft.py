@@ -20,6 +20,11 @@ class Projeto_Final:
         self.window.grid()
         
         self.objetivo_escolhido = 0
+        self.atividade_escolhida = 0
+        self.peso = tk.StringVar()
+        self.altura = tk.StringVar()
+        self.idade = tk.StringVar
+        self.c = tk.StringVar()
         
         self.window.iconbitmap(self, default='ganhar-massa.ico')
         # primeiro frame
@@ -74,8 +79,6 @@ class Projeto_Final:
         self.pagina2.rowconfigure(4,minsize = 60) 
         self.pagina2.rowconfigure(5,minsize = 100)
         self.pagina2.rowconfigure(6,minsize = 100)     
-        
-        
         self.pagina2.columnconfigure(0,minsize = 100)
         self.pagina2.columnconfigure(1,minsize = 100)
         self.pagina2.columnconfigure(2,minsize = 100)
@@ -83,8 +86,6 @@ class Projeto_Final:
         self.pagina2.columnconfigure(4,minsize = 100)
         self.pagina2.columnconfigure(5,minsize = 100)
         self.pagina2.grid(row=0, column=0, sticky="nsew")
-        
-        
         
         
         self.lgenero = tk.Label(self.pagina2)
@@ -96,33 +97,28 @@ class Projeto_Final:
         self.combo['values'] = ['Masculino', 'Feminino']
         
         
-        self.bpeso = tk.Entry(self.pagina2)
+        self.bpeso = tk.Entry(self.pagina2, textvariable = self.peso)
         self.bpeso.grid(row = 1, column = 1, sticky = 'ew')     
                 
-        
         self.lpeso = tk.Label(self.pagina2)
         self.lpeso.grid(row=1, column=0,sticky="nse")
         self.lpeso.configure(fg='black', text = 'Peso(Kg):')
-        
         
         
         self.laltura = tk.Label(self.pagina2)
         self.laltura.grid(row=1, column=2, sticky = 'nse')
         self.laltura.configure(fg='black', text = 'Altura(cm):')
         
-        self.baltura = tk.Entry(self.pagina2)
+        self.baltura = tk.Entry(self.pagina2, textvariable = self.altura)
         self.baltura.grid(row=1, column=3, sticky='ew')       
-        
-        
         
         
         self.lidade = tk.Label(self.pagina2)
         self.lidade.grid(row=1, column=4, sticky = 'nse')
         self.lidade.configure(fg='black', text = 'Idade:')
         
-        self.bidade = tk.Entry(self.pagina2)
+        self.bidade = tk.Entry(self.pagina2, textvariable = self.idade)
         self.bidade.grid(row = 1, column = 5, sticky = 'ew' )
-        
         
         
         self.lfrase = tk.Label(self.pagina2)
@@ -135,39 +131,37 @@ class Projeto_Final:
         self.imagem1 = ttk.Button(self.pagina2,image = self.plotar1)
         self.imagem1.grid(row = 3, column = 1, sticky = 'nsew')
         self.imagem1.configure(command=self.clicar_sedentario)
-        
-        
+                
         self.mostrar2 = Image.open('levemente.jpg').resize((150,100))
         self.plotar2 = ImageTk.PhotoImage(self.mostrar2)
         self.imagem2 = ttk.Button(self.pagina2, image = self.plotar2)
         self.imagem2.grid(row = 3, column = 3, sticky = 'nsew')
         self.imagem2.configure(command=self.clicar_levemente)
-        
-        
+               
         self.mostrar3 = Image.open('ativo.jpg').resize((150,100))
         self.plotar3 = ImageTk.PhotoImage(self.mostrar3)        
         self.imagem3 = ttk.Button(self.pagina2, image = self.plotar3)
         self.imagem3.grid(row = 3, column = 5, sticky = 'nsew')
         self.imagem3.configure(command=self.clicar_moderamente)
-        
+                
         self.mostrar4 = Image.open('bastante ativo.jpg').resize((150,100))
         self.plotar4 = ImageTk.PhotoImage(self.mostrar4)
         self.imagem4 = ttk.Button(self.pagina2, image = self.plotar4)
         self.imagem4.grid(row = 5, column = 1, sticky = 'nsew')
         self.imagem4.configure(command=self.clicar_muito)
-        
+                
         self.mostrar5 = Image.open('muito ativo.jpg').resize((150,100))
         self.plotar5 = ImageTk.PhotoImage(self.mostrar5)
         self.imagem5 = ttk.Button(self.pagina2, image = self.plotar5)
         self.imagem5.grid(row = 5, column =3, sticky = 'nsew')
         self.imagem5.configure(command=self.clicar_extremamente)
     
+    
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 1, sticky = '')
         self.legenda1.configure(fg = 'black', text = 'sedentário')
         ttp.CreateToolTip(self.legenda1, 'Pouco ou nenhum exercício diário.')
                        
-        
         self.legenda2 = tk.Label(self.pagina2)
         self.legenda2.grid(row = 4, column = 3, sticky = '')
         self.legenda2.configure(fg = 'black', text = 'levemente ativo')
@@ -187,8 +181,9 @@ class Projeto_Final:
         self.legenda5.grid(row = 6, column = 3, sticky = 'nsew')
         self.legenda5.configure(fg = 'black', text = 'extremamente ativo')
         ttp.CreateToolTip(self.legenda5, 'Exercício intenso todos os dias da semana ou com treinos bi-diários')
+
         
-        self.botao_voltar_pag1 = ttk.Button(self.pagina2,width=20)
+        self.botao_voltar_pag1 = ttk.Button(self.pagina2, width=20)
         self.botao_voltar_pag1.grid(row=6,column=5,sticky='se')
         self.botao_voltar_pag1.configure(text="Voltar")
         self.botao_voltar_pag1.configure(command=self.pagina1.tkraise)
@@ -224,7 +219,8 @@ class Projeto_Final:
         
         self.total_carbo = ttk.Label(self.pagina3)
         self.total_carbo.grid(row = 1, column = 1, sticky = 'nswe')
-        self.total_carbo.configure(text= self.CalculaCarbo())
+        self.total_carbo.configure(text = "0")
+        
         
         self.proteina = ttk.Label(self.pagina3)
         self.proteina.grid(row = 1, column = 2, sticky = 'nse')
@@ -252,7 +248,7 @@ class Projeto_Final:
         
         self.consumo_carbo = ttk.Label(self.pagina3)
         self.consumo_carbo.grid(row = 3, column = 1, sticky = 'nswe')
-        self.consumo_carbo.configure(text= self.ConsumoCarbo())
+        self.consumo_carbo.configure(text = self.ConsumoCarbo())
         
         self.proteina_2 = ttk.Label(self.pagina3)
         self.proteina_2.grid(row = 3, column = 2, sticky = 'nse')
@@ -289,7 +285,12 @@ class Projeto_Final:
         self.entry_quan.grid(row = 5, column = 4)
         
         self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = 'vertical')
-        self.alimentos_ad.grid(row = 6, column = 0, columnspan = 5, sticky = 'nswe')
+        self.alimentos_ad.grid(row = 6, column = 0, columnspan = 4, sticky = 'nse')
+        
+        self.botao_voltar_pag2 = ttk.Button(self.pagina3, width=20)
+        self.botao_voltar_pag2.grid(row=6,column=4, columnspan = 2, sticky='')
+        self.botao_voltar_pag2.configure(text="Voltar")
+        self.botao_voltar_pag2.configure(command = self.pagina2.tkraise)
         
     
         
@@ -297,7 +298,8 @@ class Projeto_Final:
         self.pagina1.tkraise() 
         
         
-       
+   #métodos do programa
+    
     def iniciar(self):
         self.window.mainloop()
         
@@ -310,23 +312,23 @@ class Projeto_Final:
         self.pagina2.tkraise()
         
     def clicar_sedentario(self):
-        self.atividade_escolhida = 1
+        self.atividade_escolhida = 1.2
         self.pagina3.tkraise()
         
     def clicar_levemente(self):
-        self.atividade_escolhida = 2
+        self.atividade_escolhida = 1.375
         self.pagina3.tkraise()
         
     def clicar_moderamente(self):
-        self.atividade_escolhida = 3
+        self.atividade_escolhida = 1.55
         self.pagina3.tkraise()
         
     def clicar_muito(self):
-        self.atividade_escolhida = 4
+        self.atividade_escolhida = 1.725
         self.pagina3.tkraise()
 
     def clicar_extremamente(self):
-        self.atividade_escolhida = 5
+        self.atividade_escolhida = 1.9
         self.pagina3.tkraise()
         
         
