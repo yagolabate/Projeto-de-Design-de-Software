@@ -341,9 +341,11 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
         k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2
-        self.cc.set(int((k*0.60)/4))
-        self.cp.set(int((k*0.20)/9))
-        self.cg.set(int((k*0.20)/4))
+        prot = p*2
+        carbo = (k*0.6)/4
+        self.cc.set(int(carbo))
+        self.cp.set(int(prot))
+        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
     def clicar_levemente(self):
@@ -352,9 +354,11 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
         k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375
-        self.cc.set(int((k*0.60)/4))
-        self.cp.set(int((k*0.20)/9))
-        self.cg.set(int((k*0.20)/4))
+        prot = p*2
+        carbo = (k*0.6)/4
+        self.cc.set(int(carbo))
+        self.cp.set(int(prot))
+        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
     def clicar_moderamente(self):
@@ -363,9 +367,11 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
         k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55
-        self.cc.set(int((k*0.60)/4))
-        self.cp.set(int((k*0.20)/9))
-        self.cg.set(int((k*0.20)/4))
+        prot = p*2
+        carbo = (k*0.6)/4
+        self.cc.set(int(carbo))
+        self.cp.set(int(prot))
+        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
     def clicar_muito(self):
@@ -374,9 +380,11 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
         k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725
-        self.cc.set(int((k*0.60)/4))
-        self.cp.set(int((k*0.20)/9))
-        self.cg.set(int((k*0.20)/4))
+        prot = p*2
+        carbo = (k*0.6)/4
+        self.cc.set(int(carbo))
+        self.cp.set(int(prot))
+        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
 
     def clicar_extremamente(self):
@@ -385,9 +393,11 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
         k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9
-        self.cc.set(int((k*0.60)/4))
-        self.cp.set(int((k*0.20)/9))
-        self.cg.set(int((k*0.20)/4))
+        prot = p*2
+        carbo = (k*0.6)/4
+        self.cc.set(int(carbo))
+        self.cp.set(int(prot))
+        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
     def clicar_genero(self):
