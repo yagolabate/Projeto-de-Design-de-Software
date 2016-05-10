@@ -12,6 +12,7 @@ class Projeto_Final:
     
     def __init__(self):
         
+                
         self.window = tk.Tk()
         self.window.title("Projeto final")
         self.window.geometry('900x600+220+50')
@@ -25,9 +26,11 @@ class Projeto_Final:
         self.altura = tk.StringVar()
         self.idade = tk.StringVar
         self.c = tk.StringVar()
+        self.genero = tk.StringVar()
         
         self.window.iconbitmap(self, default='ganhar-massa.ico')
         # primeiro frame
+        
         
         self.pagina1 = tk.Frame(self.window)
         self.pagina1.rowconfigure(0, minsize = 100)
@@ -37,26 +40,30 @@ class Projeto_Final:
         self.pagina1.columnconfigure(0, minsize = 450)
         self.pagina1.columnconfigure(1, minsize = 450)
         self.pagina1.grid(row=0, column=0, sticky="nsew")
+        self.pagina1.configure(background = 'light blue')
+        
         
         self.Bem_vindo = tk.Label(self.pagina1)
         self.Bem_vindo.grid(row=0, column=0, columnspan=2, sticky='nsew')
-        self.Bem_vindo.configure(text='Bem vindo ao ..', font = 50)
+        self.Bem_vindo.configure(text='Bem vindo ao ..', font = 50, background = 'light blue')
         
         self.objetivo = tk.Label(self.pagina1)
         self.objetivo.grid(row=1, column=0, columnspan=2, sticky='nsew')
-        self.objetivo.configure(text='Escolha o seu objetivo:', font = 50)
+        self.objetivo.configure(text='Escolha o seu objetivo:', font = 50, background = 'light blue')
         
         
         self.massa = Image.open('ganhar-massa.jpg').resize((320,250))
         self.load_massa = ImageTk.PhotoImage(self.massa)
         self.label = tk.Label(self.pagina1,image=self.load_massa)
-        self.label.grid(row=2,column=0,sticky='nsew')    
+        self.label.grid(row=2,column=0,sticky='nsew')  
+        self.label.configure(background = 'light blue')
         
         
         self.emagrecer = Image.open('emagrecer.jpg').resize((320,250))
         self.load_emagrecer = ImageTk.PhotoImage(self.emagrecer)
         self.label = tk.Label(self.pagina1,image=self.load_emagrecer)
         self.label.grid(row=2,column=1,sticky='nsew')  
+        self.label.configure(background = 'light blue')
         
         self.botao_massa = ttk.Button(self.pagina1, width=35)
         self.botao_massa.grid(row=3,column=0,sticky='ns')
@@ -86,15 +93,17 @@ class Projeto_Final:
         self.pagina2.columnconfigure(4,minsize = 100)
         self.pagina2.columnconfigure(5,minsize = 100)
         self.pagina2.grid(row=0, column=0, sticky="nsew")
+        self.pagina2.configure(background = 'light blue')
         
         
         self.lgenero = tk.Label(self.pagina2)
         self.lgenero.grid(row=0, column = 0, sticky = 'nse')
-        self.lgenero.configure(fg='black', text = "Gênero:")
+        self.lgenero.configure(fg='black', text = "Gênero:", background = 'light blue')
         
         self.combo = ttk.Combobox(self.pagina2)
         self.combo.grid(row = 0, column = 1)
         self.combo['values'] = ['Masculino', 'Feminino']
+        self.combo = ttk.Combobox(self.pagina2, textvariable = self.genero)
         
         
         self.bpeso = tk.Entry(self.pagina2, textvariable = self.peso)
@@ -102,12 +111,12 @@ class Projeto_Final:
                 
         self.lpeso = tk.Label(self.pagina2)
         self.lpeso.grid(row=1, column=0,sticky="nse")
-        self.lpeso.configure(fg='black', text = 'Peso(Kg):')
+        self.lpeso.configure(fg='black', text = 'Peso(Kg):', background = 'light blue')
         
         
         self.laltura = tk.Label(self.pagina2)
         self.laltura.grid(row=1, column=2, sticky = 'nse')
-        self.laltura.configure(fg='black', text = 'Altura(cm):')
+        self.laltura.configure(fg='black', text = 'Altura(cm):', background = 'light blue')
         
         self.baltura = tk.Entry(self.pagina2, textvariable = self.altura)
         self.baltura.grid(row=1, column=3, sticky='ew')       
@@ -115,7 +124,7 @@ class Projeto_Final:
         
         self.lidade = tk.Label(self.pagina2)
         self.lidade.grid(row=1, column=4, sticky = 'nse')
-        self.lidade.configure(fg='black', text = 'Idade:')
+        self.lidade.configure(fg='black', text = 'Idade:', background = 'light blue')
         
         self.bidade = tk.Entry(self.pagina2, textvariable = self.idade)
         self.bidade.grid(row = 1, column = 5, sticky = 'ew' )
@@ -123,7 +132,7 @@ class Projeto_Final:
         
         self.lfrase = tk.Label(self.pagina2)
         self.lfrase.grid(row=2,column=2,columnspan=3, sticky='nsew')
-        self.lfrase.configure(fg="black", text="Selecione seu nivel de atividade fisica:")
+        self.lfrase.configure(fg="black", text="Selecione seu nivel de atividade fisica:", background = 'light blue')
         
         
         self.mostrar1 = Image.open('sedentarismo.jpg').resize((150,100))
@@ -159,27 +168,27 @@ class Projeto_Final:
     
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 1, sticky = '')
-        self.legenda1.configure(fg = 'black', text = 'sedentário')
+        self.legenda1.configure(fg = 'black', text = 'sedentário', background = 'light blue')
         ttp.CreateToolTip(self.legenda1, 'Pouco ou nenhum exercício diário.')
                        
         self.legenda2 = tk.Label(self.pagina2)
         self.legenda2.grid(row = 4, column = 3, sticky = '')
-        self.legenda2.configure(fg = 'black', text = 'levemente ativo')
+        self.legenda2.configure(fg = 'black', text = 'levemente ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda2, 'Exercício leve/1 a 3 dias por semana.')
         
         self.legenda3 = tk.Label(self.pagina2)
         self.legenda3.grid(row = 4, column = 5, sticky = '')
-        self.legenda3.configure(fg = 'black', text = 'moderamente ativo')
+        self.legenda3.configure(fg = 'black', text = 'moderadamente ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda3, 'Exercício moderado/3 a 5 dias por semana')
         
         self.legenda4 = tk.Label(self.pagina2)
         self.legenda4.grid(row = 6, column = 1, sticky = 'nsew')
-        self.legenda4.configure(fg = 'black', text = 'muito ativo')
+        self.legenda4.configure(fg = 'black', text = 'muito ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda4, 'Exercício intenso/ 6 a 7 dias na semana')        
         
         self.legenda5 = tk.Label(self.pagina2)
         self.legenda5.grid(row = 6, column = 3, sticky = 'nsew')
-        self.legenda5.configure(fg = 'black', text = 'extremamente ativo')
+        self.legenda5.configure(fg = 'black', text = 'extremamente ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda5, 'Exercício intenso todos os dias da semana ou com treinos bi-diários')
 
         
@@ -207,79 +216,90 @@ class Projeto_Final:
         self.pagina3.columnconfigure(4, minsize = 150)
         self.pagina3.columnconfigure(5, minsize = 150)
         self.pagina3.grid(row=0, column=0, sticky="nsew")
+        self.pagina3.configure(background = 'light blue')
+        
         
         
         self.frase_1 = ttk.Label(self.pagina3)
         self.frase_1.grid(row = 0, column = 0, sticky = 'nsw')
         self.frase_1.configure(text = "Quantidades a serem consumidas:")
+        self.frase_1.configure(background = 'light blue')
         
         self.carboidrato = ttk.Label(self.pagina3)
         self.carboidrato.grid(row = 1, column = 0, sticky = 'nse')
         self.carboidrato.configure(text = "Carboidratos:")
+        self.carboidrato.configure(background = 'light blue')
         
         self.total_carbo = ttk.Label(self.pagina3)
         self.total_carbo.grid(row = 1, column = 1, sticky = 'nswe')
         self.total_carbo.configure(text = "0")
+        self.total_carbo.configure(background = 'light blue')
         
         
         self.proteina = ttk.Label(self.pagina3)
         self.proteina.grid(row = 1, column = 2, sticky = 'nse')
         self.proteina.configure(text = "Proteínas:")
+        self.proteina.configure(background = 'light blue')        
         
         self.total_proteina = ttk.Label(self.pagina3)
         self.total_proteina.grid(row = 1, column = 3, sticky = 'nswe')
         self.total_proteina.configure(text= self.CalculaProteina())
+        self.total_proteina.configure(background = 'light blue')
         
         self.gordura = ttk.Label(self.pagina3)
         self.gordura.grid(row = 1, column = 4, sticky = 'nse')
         self.gordura.configure(text = "Gorduras:")
+        self.gordura.configure(background = 'light blue')
         
         self.total_gordura = ttk.Label(self.pagina3)
         self.total_gordura.grid(row = 1, column = 5, sticky = 'nswe')
         self.total_gordura.configure(text= self.CalculaGordura())
+        self.total_gordura.configure(background = 'light blue')
         
         self.frase_2 = ttk.Label(self.pagina3)
         self.frase_2.grid(row = 2, column = 0, sticky = 'nsw')
         self.frase_2.configure(text = "Quantidades já consumidas:")
+        self.frase_2.configure(background = 'light blue')
         
         self.carboidrato_2 = ttk.Label(self.pagina3)
         self.carboidrato_2.grid(row = 3, column = 0, sticky = 'nse')
         self.carboidrato_2.configure(text = "Carboidratos:")
+        self.carboidrato_2.configure(background = 'light blue')
         
         self.consumo_carbo = ttk.Label(self.pagina3)
         self.consumo_carbo.grid(row = 3, column = 1, sticky = 'nswe')
-        self.consumo_carbo.configure(text = self.ConsumoCarbo())
+        self.consumo_carbo.configure(text = self.ConsumoCarbo(), background = 'light blue' )
         
         self.proteina_2 = ttk.Label(self.pagina3)
         self.proteina_2.grid(row = 3, column = 2, sticky = 'nse')
-        self.proteina_2.configure(text = "Proteínas:")
+        self.proteina_2.configure(text = "Proteínas:", background = 'light blue')
         
         self.consumo_proteina = ttk.Label(self.pagina3)
         self.consumo_proteina.grid(row = 3, column = 3, sticky = 'nswe')
-        self.consumo_proteina.configure(text= self.ConsumoProteina())
+        self.consumo_proteina.configure(text= self.ConsumoProteina(), background = 'light blue')
         
         self.gordura_2 = ttk.Label(self.pagina3)
         self.gordura_2.grid(row = 3, column = 4, sticky = 'nse')
-        self.gordura_2.configure(text = "Gorduras:")
+        self.gordura_2.configure(text = "Gorduras:", background = 'light blue')
         
         self.consumo_gordura = ttk.Label(self.pagina3)
         self.consumo_gordura.grid(row = 3, column = 5, sticky = 'nswe')
-        self.consumo_gordura.configure(text= self.ConsumoGordura())
+        self.consumo_gordura.configure(text= self.ConsumoGordura(), background = 'light blue')
         
         self.frase_3 = ttk.Label(self.pagina3)
         self.frase_3.grid(row = 4, column = 0, sticky = 'nsw')
-        self.frase_3.configure(text = "Alimentos consumidos:")
+        self.frase_3.configure(text = "Alimentos consumidos:", background = 'light blue')
         
         self.ad_alimento = ttk.Label(self.pagina3)
         self.ad_alimento.grid(row = 5, column = 0, columnspan = 1, sticky = 'nswe')
-        self.ad_alimento.configure(text = "Adicione um alimento:")
+        self.ad_alimento.configure(text = "Adicione um alimento:", background = 'light blue')
         
         self.entry_ad = ttk.Entry(self.pagina3)
         self.entry_ad.grid(row = 5, column = 1)
         
         self.quan_alimento = ttk.Label(self.pagina3)
         self.quan_alimento.grid(row = 5, column = 3, columnspan = 1, sticky = 'nswe')
-        self.quan_alimento.configure(text = "Quantidade do alimento(g):")
+        self.quan_alimento.configure(text = "Quantidade do alimento(g):", background = 'light blue')
         
         self.entry_quan = ttk.Entry(self.pagina3)
         self.entry_quan.grid(row = 5, column = 4)
@@ -331,6 +351,13 @@ class Projeto_Final:
         self.atividade_escolhida = 1.9
         self.pagina3.tkraise()
         
+    def clicar_genero(self):
+        if self.genero == 'Masculino':
+            self.genero = 1
+            
+        elif self.genero == 'Feminino':
+            self.genero = 2
+            
         
     def CalculaCarbo(self):
         return 0
