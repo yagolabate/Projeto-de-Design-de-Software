@@ -24,7 +24,7 @@ class Projeto_Final:
         self.atividade_escolhida = 0
         self.peso = tk.StringVar()
         self.altura = tk.StringVar()
-        self.idade = tk.StringVar
+        self.idade = tk.StringVar()
         self.c = tk.StringVar()
         self.genero = tk.StringVar()
         
