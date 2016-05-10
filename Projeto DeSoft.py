@@ -23,8 +23,10 @@ class Projeto_Final:
         self.atividade_escolhida = 0
         self.peso = tk.StringVar()
         self.altura = tk.StringVar()
-        self.idade = tk.StringVar
-        self.c = tk.StringVar()
+        self.idade = tk.StringVar()
+        self.cc = tk.StringVar()
+        self.cg = tk.StringVar()
+        self.cp = tk.StringVar()
         
         self.window.iconbitmap(self, default='ganhar-massa.ico')
         # primeiro frame
@@ -219,7 +221,7 @@ class Projeto_Final:
         
         self.total_carbo = ttk.Label(self.pagina3)
         self.total_carbo.grid(row = 1, column = 1, sticky = 'nswe')
-        self.total_carbo.configure(text = "0")
+        self.total_carbo.configure(textvariable = self.cc)
         
         
         self.proteina = ttk.Label(self.pagina3)
@@ -228,7 +230,7 @@ class Projeto_Final:
         
         self.total_proteina = ttk.Label(self.pagina3)
         self.total_proteina.grid(row = 1, column = 3, sticky = 'nswe')
-        self.total_proteina.configure(text= self.CalculaProteina())
+        self.total_proteina.configure(textvariable = self.cp)
         
         self.gordura = ttk.Label(self.pagina3)
         self.gordura.grid(row = 1, column = 4, sticky = 'nse')
@@ -236,7 +238,7 @@ class Projeto_Final:
         
         self.total_gordura = ttk.Label(self.pagina3)
         self.total_gordura.grid(row = 1, column = 5, sticky = 'nswe')
-        self.total_gordura.configure(text= self.CalculaGordura())
+        self.total_gordura.configure(textvariable = self.cg)
         
         self.frase_2 = ttk.Label(self.pagina3)
         self.frase_2.grid(row = 2, column = 0, sticky = 'nsw')
@@ -313,33 +315,60 @@ class Projeto_Final:
         
     def clicar_sedentario(self):
         self.atividade_escolhida = 1.2
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
     def clicar_levemente(self):
         self.atividade_escolhida = 1.375
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
     def clicar_moderamente(self):
         self.atividade_escolhida = 1.55
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
     def clicar_muito(self):
         self.atividade_escolhida = 1.725
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
 
     def clicar_extremamente(self):
         self.atividade_escolhida = 1.9
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
         
-    def CalculaCarbo(self):
-        return 0
-        
-    def CalculaProteina(self):
-        return 0
-        
-    def CalculaGordura(self):
-        return 0
         
     def ConsumoCarbo(self):
         return 0
