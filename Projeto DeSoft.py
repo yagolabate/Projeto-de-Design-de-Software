@@ -24,10 +24,13 @@ class Projeto_Final:
         self.atividade_escolhida = 0
         self.peso = tk.StringVar()
         self.altura = tk.StringVar()
-        self.idade = tk.StringVar()
-        self.c = tk.StringVar()
+        self.idade = tk.StringVar()        
+        self.cc = tk.StringVar()
+        self.cg = tk.StringVar()
+        self.cp = tk.StringVar()
+
+
         self.genero = tk.StringVar()
-        
         self.window.iconbitmap(self, default='ganhar-massa.ico')
         # primeiro frame
         
@@ -227,33 +230,35 @@ class Projeto_Final:
         
         self.carboidrato = ttk.Label(self.pagina3)
         self.carboidrato.grid(row = 1, column = 0, sticky = 'nse')
-        self.carboidrato.configure(text = "Carboidratos:")
+        self.carboidrato.configure(text = "Carboidratos(g):")
         self.carboidrato.configure(background = 'light blue')
         
         self.total_carbo = ttk.Label(self.pagina3)
         self.total_carbo.grid(row = 1, column = 1, sticky = 'nswe')
-        self.total_carbo.configure(text = "0")
+        self.total_carbo.configure(textvariable = self.cc)
         self.total_carbo.configure(background = 'light blue')
+
         
         
         self.proteina = ttk.Label(self.pagina3)
         self.proteina.grid(row = 1, column = 2, sticky = 'nse')
-        self.proteina.configure(text = "Proteínas:")
+        self.proteina.configure(text = "Proteínas(g):")
         self.proteina.configure(background = 'light blue')        
         
         self.total_proteina = ttk.Label(self.pagina3)
         self.total_proteina.grid(row = 1, column = 3, sticky = 'nswe')
-        self.total_proteina.configure(text= self.CalculaProteina())
+        self.total_proteina.configure(textvariable = self.cp)
         self.total_proteina.configure(background = 'light blue')
+
         
         self.gordura = ttk.Label(self.pagina3)
         self.gordura.grid(row = 1, column = 4, sticky = 'nse')
-        self.gordura.configure(text = "Gorduras:")
+        self.gordura.configure(text = "Gorduras(g):")
         self.gordura.configure(background = 'light blue')
         
         self.total_gordura = ttk.Label(self.pagina3)
         self.total_gordura.grid(row = 1, column = 5, sticky = 'nswe')
-        self.total_gordura.configure(text= self.CalculaGordura())
+        self.total_gordura.configure(textvariable = self.cg)
         self.total_gordura.configure(background = 'light blue')
         
         self.frase_2 = ttk.Label(self.pagina3)
@@ -263,7 +268,7 @@ class Projeto_Final:
         
         self.carboidrato_2 = ttk.Label(self.pagina3)
         self.carboidrato_2.grid(row = 3, column = 0, sticky = 'nse')
-        self.carboidrato_2.configure(text = "Carboidratos:")
+        self.carboidrato_2.configure(text = "Carboidratos(g):")
         self.carboidrato_2.configure(background = 'light blue')
         
         self.consumo_carbo = ttk.Label(self.pagina3)
@@ -272,7 +277,7 @@ class Projeto_Final:
         
         self.proteina_2 = ttk.Label(self.pagina3)
         self.proteina_2.grid(row = 3, column = 2, sticky = 'nse')
-        self.proteina_2.configure(text = "Proteínas:", background = 'light blue')
+        self.proteina_2.configure(text = "Proteínas(g):", background = 'light blue')
         
         self.consumo_proteina = ttk.Label(self.pagina3)
         self.consumo_proteina.grid(row = 3, column = 3, sticky = 'nswe')
@@ -280,7 +285,7 @@ class Projeto_Final:
         
         self.gordura_2 = ttk.Label(self.pagina3)
         self.gordura_2.grid(row = 3, column = 4, sticky = 'nse')
-        self.gordura_2.configure(text = "Gorduras:", background = 'light blue')
+        self.gordura_2.configure(text = "Gorduras(g):", background = 'light blue')
         
         self.consumo_gordura = ttk.Label(self.pagina3)
         self.consumo_gordura.grid(row = 3, column = 5, sticky = 'nswe')
@@ -328,45 +333,80 @@ class Projeto_Final:
         self.pagina2.tkraise()
         
     def clicar_Emagrecer(self):
-        self.objetivo_escolhido = 2
+        self.objetivo_escolhido = 2 
         self.pagina2.tkraise()
         
     def clicar_sedentario(self):
         self.atividade_escolhida = 1.2
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
     def clicar_levemente(self):
         self.atividade_escolhida = 1.375
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
     def clicar_moderamente(self):
         self.atividade_escolhida = 1.55
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
     def clicar_muito(self):
         self.atividade_escolhida = 1.725
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
+        
 
     def clicar_extremamente(self):
         self.atividade_escolhida = 1.9
+        p = float(self.peso.get())
+        a = float(self.altura.get())
+        i = float(self.idade.get())
+        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9
+        self.cc.set(int((k*0.60)/4))
+        self.cp.set(int((k*0.20)/9))
+        self.cg.set(int((k*0.20)/4))
         self.pagina3.tkraise()
         
+        
     def clicar_genero(self):
+        
+        
         if self.genero == 'Masculino':
             self.genero = 1
             
+            
+            return 
+            
         elif self.genero == 'Feminino':
             self.genero = 2
+          
             
         
-    def CalculaCarbo(self):
-        return 0
-        
-    def CalculaProteina(self):
-        return 0
-        
-    def CalculaGordura(self):
-        return 0
         
     def ConsumoCarbo(self):
         return 0
