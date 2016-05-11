@@ -20,16 +20,17 @@ class Projeto_Final:
         self.window.columnconfigure(0, minsize = 900)
         self.window.grid()
         
+        
         self.objetivo_escolhido = 0
-        self.atividade_escolhida = 0
         self.peso = tk.StringVar()
         self.altura = tk.StringVar()
         self.idade = tk.StringVar()
         self.cc = tk.StringVar()
         self.cg = tk.StringVar()
         self.cp = tk.StringVar()
-
-        self.genero = tk.StringVar()
+        self.combo_value = tk.StringVar()
+        
+        
         self.window.iconbitmap(self, default='ganhar-massa.ico')
         # primeiro frame
         
@@ -102,11 +103,10 @@ class Projeto_Final:
         self.lgenero.grid(row=0, column = 0, sticky = 'nse')
         self.lgenero.configure(fg='black', text = "Gênero:", background = 'light blue')
         
-        self.combo = ttk.Combobox(self.pagina2)
+        self.combo = ttk.Combobox(self.pagina2, textvariable = self.combo_value)
         self.combo.grid(row = 0, column = 1)
         self.combo['values'] = ['Masculino', 'Feminino']
-        self.combo = ttk.Combobox(self.pagina2, textvariable = self.genero)
-        
+        # self.combo.bind('<<ComboboxSelected>>', self.atualiza_combo)        
         
         self.bpeso = tk.Entry(self.pagina2, textvariable = self.peso)
         self.bpeso.grid(row = 1, column = 1, sticky = 'ew')     
@@ -335,78 +335,117 @@ class Projeto_Final:
         self.objetivo_escolhido = 2
         self.pagina2.tkraise()
         
+        
+    def atualiza_combo(self, event):
+        print("atualiza_combo")
+        
     def clicar_sedentario(self):
-        self.atividade_escolhida = 1.2
+        g = self.combo_value.get()
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
-        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2
-        prot = p*2
-        carbo = (k*0.6)/4
-        self.cc.set(int(carbo))
-        self.cp.set(int(prot))
-        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        if g == 'Masculino':
+            k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        elif g == 'Feminino':
+            k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.2
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
+            
         
     def clicar_levemente(self):
-        self.atividade_escolhida = 1.375
+        g = self.combo_value.get()
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
-        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375
-        prot = p*2
-        carbo = (k*0.6)/4
-        self.cc.set(int(carbo))
-        self.cp.set(int(prot))
-        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        if g == 'Masculino':
+            k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        elif g == 'Feminino':
+            k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.375
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
     def clicar_moderamente(self):
-        self.atividade_escolhida = 1.55
+        g = self.combo_value.get()
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
-        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55
-        prot = p*2
-        carbo = (k*0.6)/4
-        self.cc.set(int(carbo))
-        self.cp.set(int(prot))
-        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        if g == 'Masculino':
+            k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        elif g == 'Feminino':
+            k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.55
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
     def clicar_muito(self):
-        self.atividade_escolhida = 1.725
+        g = self.combo_value.get()
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
-        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725
-        prot = p*2
-        carbo = (k*0.6)/4
-        self.cc.set(int(carbo))
-        self.cp.set(int(prot))
-        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        if g == 'Masculino':
+            k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        elif g == 'Feminino':
+            k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.725
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
 
     def clicar_extremamente(self):
-        self.atividade_escolhida = 1.9
+        g = self.combo_value.get()
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
-        k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9
-        prot = p*2
-        carbo = (k*0.6)/4
-        self.cc.set(int(carbo))
-        self.cp.set(int(prot))
-        self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        if g == 'Masculino':
+            k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+        elif g == 'Feminino':
+            k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.9
+            prot = p*2
+            carbo = (k*0.6)/4
+            self.cc.set(int(carbo))
+            self.cp.set(int(prot))
+            self.cg.set(int((k-(prot*4)-(carbo*4))/9))
         self.pagina3.tkraise()
         
-    def clicar_genero(self):
-        if self.genero == 'Masculino':
-            self.genero = 1
-            
-        elif self.genero == 'Feminino':
-            self.genero = 2
-            
+
         
         
     def ConsumoCarbo(self):
