@@ -364,7 +364,7 @@ class Projeto_Final:
         
     def clicar_sedentario(self):
         g = self.combo_value.get()
-        p = float(self.peso.get())
+        p = float(S.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
         if g == 'Masculino':
