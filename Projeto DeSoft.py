@@ -572,7 +572,7 @@ class Projeto_Final:
             return self.nutrientes
             
     def clicar_adicionar(self):
-        print(comidas.ler_dicionario_comidas)
+        print(self.comidas["Carnes e derivados"]["	Apresuntado	"])
         
     def clicar_remover(self):
         return
