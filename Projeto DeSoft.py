@@ -238,7 +238,7 @@ class Projeto_Final:
         self.frase_1 = ttk.Label(self.pagina3)
         self.frase_1.grid(row = 0, column = 0, sticky = 'nsw')
         self.frase_1.configure(text = "Quantidades a serem consumidas:")
-        self.frase_1.configure(background = 'white')
+        self.frase_1.configure(background = 'light blue')
         
         self.carboidrato = ttk.Label(self.pagina3)
         self.carboidrato.grid(row = 1, column = 0, sticky = 'nse')
@@ -330,6 +330,8 @@ class Projeto_Final:
         
         self.entry_quan = ttk.Entry(self.pagina3)
         self.entry_quan.grid(row = 5, column = 4)
+        
+        self.list_alimentos = tk.Listbox(self.pagina3)
         
         self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = 'vertical')
         self.alimentos_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nse')
