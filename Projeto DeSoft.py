@@ -29,6 +29,7 @@ class Projeto_Final:
         self.cc = tk.StringVar()
         self.cg = tk.StringVar()
         self.cp = tk.StringVar()
+        self.alimento = tk.StringVar()
 
         self.genero = tk.StringVar()
 
@@ -315,14 +316,16 @@ class Projeto_Final:
         self.v1 = tk.StringVar(self.pagina3)
         self.v1.set(self.categoria_comida_inicial)
         
-        self.d1 = ttk.OptionMenu(self.pagina3, self.v1, *self.categorias_comida, command=self.option_1_selected)
-        self.d1.grid(row=5, column=1, columnspan = 2,)
+        print(self.categorias_comida)
+        self.d1 = ttk.OptionMenu(self.pagina3, self.v1, "Escolha a categoria", *self.categorias_comida, command=self.option_1_selected)
+        self.d1.grid(row=5, column=1, columnspan = 2)
         
         self.v2 = tk.StringVar(self.pagina3)
         self.v2.set(self.comida_inicial) # default value
         
-        self.d2 = ttk.OptionMenu(self.pagina3, self.v2, *self.comidas_na_categoria, command=self.option_2_selected)
+        self.d2 = ttk.OptionMenu(self.pagina3, self.v2, "Escolha a comida", *self.comidas_na_categoria, command=self.option_2_selected)
         self.d2.grid(row=6, column=1, columnspan = 2)
+        
         
         self.quan_alimento = ttk.Label(self.pagina3)
         self.quan_alimento.grid(row = 5, column = 3, columnspan = 1, sticky = 'nswe')
@@ -333,12 +336,21 @@ class Projeto_Final:
         
         self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = 'vertical')
         self.alimentos_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nse')
-        
+            
         self.botao_voltar_pag2 = ttk.Button(self.pagina3, width=20)
         self.botao_voltar_pag2.grid(row=7,column=4, columnspan = 2, sticky='s')
         self.botao_voltar_pag2.configure(text="Voltar")
         self.botao_voltar_pag2.configure(command = self.pagina2.tkraise)
         
+        self.botao_adicionar_alimento = ttk.Button(self.pagina3, width=20)
+        self.botao_adicionar_alimento.grid(row=6,column=3,columnspan = 2)
+        self.botao_adicionar_alimento.configure(text="Adicionar alimento")
+        self.botao_adicionar_alimento.configure(command=self.clicar_adicionar)
+        
+        self.botao_remover_alimento = ttk.Button(self.pagina3, width=20)
+        self.botao_remover_alimento.grid(row=6,column=5,columnspan = 2)
+        self.botao_remover_alimento.configure(text="Remover alimento")
+        self.botao_remover_alimento.configure(command=self.clicar_remover)
     
         
         #Chamando a primeira frame
@@ -383,6 +395,8 @@ class Projeto_Final:
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
             self.pagina3.tkraise()
+        print(self.v2.get())
+        print(self.v1.get())
             
         
     def clicar_levemente(self):
@@ -502,10 +516,13 @@ class Projeto_Final:
         if self.categoria in self.comidas:
             self.nutrientes = self.comidas[self.categoria][comida]
             return self.nutrientes
-    
             
-
+    def clicar_adicionar(self):
+        print(comidas.ler_dicionario_comidas)
         
+    def clicar_remover(self):
+        return
+
         
     def ConsumoCarbo(self):
         return 0
