@@ -111,8 +111,7 @@ class Projeto_Final:
         
         self.combo = ttk.Combobox(self.pagina2, textvariable = self.combo_value)
         self.combo.grid(row = 0, column = 1)
-        self.combo['values'] = ['Masculino', 'Feminino']
-        # self.combo.bind('<<ComboboxSelected>>', self.atualiza_combo)        
+        self.combo['values'] = ['Masculino', 'Feminino']       
         
         self.bpeso = tk.Entry(self.pagina2, textvariable = self.peso)
         self.bpeso.grid(row = 1, column = 1, sticky = 'ew')     
@@ -357,6 +356,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+            self.pagina3.tkraise()
         elif g == 'Feminino':
             k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.2
             prot = p*2
@@ -364,7 +364,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
-        self.pagina3.tkraise()
+            self.pagina3.tkraise()
             
         
     def clicar_levemente(self):
@@ -379,6 +379,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+            self.pagina3.tkraise()
         elif g == 'Feminino':
             k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.375
             prot = p*2
@@ -386,7 +387,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
-        self.pagina3.tkraise()
+            self.pagina3.tkraise()
         
     def clicar_moderamente(self):
         g = self.combo_value.get()
@@ -400,6 +401,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+            self.pagina3.tkraise()
         elif g == 'Feminino':
             k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.55
             prot = p*2
@@ -407,7 +409,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
-        self.pagina3.tkraise()
+            self.pagina3.tkraise()
         
     def clicar_muito(self):
         g = self.combo_value.get()
@@ -421,6 +423,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+            self.pagina3.tkraise()
         elif g == 'Feminino':
             k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.725
             prot = p*2
@@ -428,7 +431,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
-        self.pagina3.tkraise()
+            self.pagina3.tkraise()
         
 
     def clicar_extremamente(self):
@@ -443,6 +446,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
+            self.pagina3.tkraise()
         elif g == 'Feminino':
             k = ((9.25*p)+(3.1*a)-(4.33*i)+447.6)*1.9
             prot = p*2
@@ -450,7 +454,7 @@ class Projeto_Final:
             self.cc.set(int(carbo))
             self.cp.set(int(prot))
             self.cg.set(int((k-(prot*4)-(carbo*4))/9))
-        self.pagina3.tkraise()
+            self.pagina3.tkraise()
         
 
         
