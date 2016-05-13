@@ -5,6 +5,8 @@ from tkinter import ttk
 import comidas
 
 import ToolTip as ttp
+#from firebase import firebase
+#firebase = curl'https://projeto-de-desoft.firebaseio.com/'
 
 
 
@@ -44,7 +46,56 @@ class Projeto_Final:
         self.categoria_comida_inicial = self.categorias_comida[0]
         
         self.comidas_na_categoria = [c for c in self.comidas[self.categoria_comida_inicial]]
-        self.comida_inicial = self.comidas_na_categoria[0]        
+        self.comida_inicial = self.comidas_na_categoria[0]    
+        
+        
+        #cadastro de usuario
+        
+        
+        
+        self.pagina0 = tk.Frame(self.window)
+        self.pagina0.rowconfigure(0, minsize = 250)
+        self.pagina0.rowconfigure(1, minsize = 50)
+        self.pagina0.rowconfigure(2, minsize = 50)
+        self.pagina0.rowconfigure(3, minsize = 200)
+        self.pagina0.rowconfigure(4, minsize = 50)
+        self.pagina0.columnconfigure(0 ,minsize = 400)
+        self.pagina0.columnconfigure(1, minsize = 500)
+        self.pagina0.grid(row=0,column=0, sticky="nsew")
+        self.pagina0.configure(background = 'light blue')
+        
+        self.ltitulo = tk.Label(self.pagina0)
+        self.ltitulo.grid(row = 0, columnspan = 2, sticky = '')
+        self.ltitulo.configure(text = 'Bem vindo ao:', font = 100, background = 'light blue')
+        
+        self.lnome = ttk.Label(self.pagina0)
+        self.lnome.grid(row = 1, column = 0, sticky = 'e')
+        self.lnome.configure(text = "Nome:", background = 'light blue')
+        
+        self.bnome = ttk.Entry(self.pagina0)
+        self.bnome.grid(row = 1, column = 1, sticky = 'w')
+        
+        self.lsobrenome = ttk.Label(self.pagina0)
+        self.lsobrenome.grid(row = 2, column = 0, sticky = 'e')
+        self.lsobrenome.configure(text = "Sobrenome:", background = 'light blue')
+        
+        self.bsobrenome = ttk.Entry(self.pagina0)
+        self.bsobrenome.grid(row = 2, column = 1, sticky = 'w')
+        
+        self.llogin = ttk.Label(self.pagina0)
+        self.llogin.grid(row = 3, column = 0, sticky = 'e')
+        self.llogin.configure(text = "Login:", background = 'light blue')
+        
+        self.blogin = ttk.Entry(self.pagina0)
+        self.blogin.grid(row = 3, column = 1, sticky = 'w')
+        
+        self.bseguinte = ttk.Button(self.pagina0)
+        self.bseguinte.grid(row = 4, column = 1, sticky = 'e')
+        self.bseguinte.configure(text = "Seguinte", )
+        self.bseguinte.configure(command = self.clicar_seguinte)
+        
+        
+        
         
         # primeiro frame
         
@@ -60,9 +111,7 @@ class Projeto_Final:
         self.pagina1.configure(background = 'light blue')
         
         
-        self.Bem_vindo = tk.Label(self.pagina1)
-        self.Bem_vindo.grid(row=0, column=0, columnspan=2, sticky='nsew')
-        self.Bem_vindo.configure(text='Bem vindo ao ..', font = 50, background = 'light blue')
+        
         
         self.objetivo = tk.Label(self.pagina1)
         self.objetivo.grid(row=1, column=0, columnspan=2, sticky='nsew')
@@ -239,7 +288,7 @@ class Projeto_Final:
         self.frase_1 = ttk.Label(self.pagina3)
         self.frase_1.grid(row = 0, column = 0, sticky = 'nsw')
         self.frase_1.configure(text = "Quantidades a serem consumidas:")
-        self.frase_1.configure(background = 'white')
+        self.frase_1.configure(background = 'light blue')
         
         self.carboidrato = ttk.Label(self.pagina3)
         self.carboidrato.grid(row = 1, column = 0, sticky = 'nse')
@@ -334,6 +383,8 @@ class Projeto_Final:
         self.entry_quan = ttk.Entry(self.pagina3)
         self.entry_quan.grid(row = 5, column = 4)
         
+        self.list_alimentos = tk.Listbox(self.pagina3)
+        
         self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = 'vertical')
         self.alimentos_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nse')
             
@@ -354,13 +405,16 @@ class Projeto_Final:
     
         
         #Chamando a primeira frame
-        self.pagina1.tkraise() 
+        self.pagina0.tkraise() 
         
         
    #métodos do programa
     
     def iniciar(self):
         self.window.mainloop()
+        
+    def clicar_seguinte(self):
+        self.pagina1.tkraise()
         
     def clicar_GanharMassa(self):
         self.objetivo_escolhido = 1
