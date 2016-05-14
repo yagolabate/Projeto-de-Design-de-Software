@@ -398,6 +398,7 @@ class Projeto_Final:
         self.botao_adicionar_alimento.configure(text="Adicionar alimento")
         self.botao_adicionar_alimento.configure(command=self.clicar_adicionar)
         
+        
         self.botao_remover_alimento = ttk.Button(self.pagina3, width=20)
         self.botao_remover_alimento.grid(row=6,column=5,columnspan = 2)
         self.botao_remover_alimento.configure(text="Remover alimento")
@@ -572,7 +573,7 @@ class Projeto_Final:
             return self.nutrientes
             
     def clicar_adicionar(self):
-        print(self.comidas["Carnes e derivados"]["	Apresuntado	"])
+        print(self.comidas[self.v1.get()][self.v2.get()][0])
         
     def clicar_remover(self):
         return
