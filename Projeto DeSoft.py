@@ -6,7 +6,7 @@ import comidas
 
 import ToolTip as ttp
 #from firebase import firebase
-#firebase = curl'https://projeto-de-desoft.firebaseio.com/'
+firebase = firebase.FirebaseApplication('https://projeto-de-desoft.firebaseio.com/')
 
 
 
