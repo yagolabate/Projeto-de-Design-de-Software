@@ -32,7 +32,7 @@ class Projeto_Final:
         self.cg = tk.StringVar()
         self.cp = tk.StringVar()
         self.alimento = tk.StringVar()
-        self.quantidade = tk.StringVar()
+        self.quantidade = tk.DoubleVar()
 
         self.genero = tk.StringVar()
 
@@ -385,7 +385,7 @@ class Projeto_Final:
         self.entry_quan.grid(row = 5, column = 4)
         
         
-        self.alimentos_ad = ttk.Scrollbar(self.pagina3)
+        self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = "vertical")
         self.alimentos_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nse')
             
         self.botao_voltar_pag2 = ttk.Button(self.pagina3, width=20)
@@ -573,7 +573,7 @@ class Projeto_Final:
             return self.nutrientes
             
     def clicar_adicionar(self):
-        print(self.comidas[self.v1.get()][self.v2.get()][0])
+        print((self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100)
         
     def clicar_remover(self):
         return
