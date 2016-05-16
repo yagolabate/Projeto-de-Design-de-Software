@@ -275,6 +275,7 @@ class Projeto_Final:
         self.pagina3.rowconfigure(5, minsize = 75)
         self.pagina3.rowconfigure(6, minsize = 75)
         self.pagina3.rowconfigure(7, minsize = 150)
+        self.pagina3.rowconfigure(8, minsize = 75)
         self.pagina3.columnconfigure(0, minsize = 100)
         self.pagina3.columnconfigure(1, minsize = 50)
         self.pagina3.columnconfigure(2, minsize = 150)
@@ -384,23 +385,22 @@ class Projeto_Final:
         self.entry_quan = ttk.Entry(self.pagina3, textvariable = self.quantidade)
         self.entry_quan.grid(row = 5, column = 4)
         
-        
-        self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = "vertical")
-        self.alimentos_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nse')
-            
+        self.listbox_ad = tk.Listbox(self.pagina3)  
+        self.listbox_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nsew')
+         
         self.botao_voltar_pag2 = ttk.Button(self.pagina3, width=20)
-        self.botao_voltar_pag2.grid(row=7,column=4, columnspan = 2, sticky='s')
+        self.botao_voltar_pag2.grid(row=8,column=4, columnspan = 2, sticky='s')
         self.botao_voltar_pag2.configure(text="Voltar")
         self.botao_voltar_pag2.configure(command = self.pagina2.tkraise)
         
         self.botao_adicionar_alimento = ttk.Button(self.pagina3, width=20)
-        self.botao_adicionar_alimento.grid(row=6,column=3,columnspan = 2)
+        self.botao_adicionar_alimento.grid(row=6,column=4,columnspan = 2)
         self.botao_adicionar_alimento.configure(text="Adicionar alimento")
         self.botao_adicionar_alimento.configure(command=self.clicar_adicionar)
         
         
         self.botao_remover_alimento = ttk.Button(self.pagina3, width=20)
-        self.botao_remover_alimento.grid(row=6,column=5,columnspan = 2)
+        self.botao_remover_alimento.grid(row=7,column=4,columnspan = 2, sticky="n")
         self.botao_remover_alimento.configure(text="Remover alimento")
         self.botao_remover_alimento.configure(command=self.clicar_remover)
     
@@ -663,7 +663,7 @@ class Projeto_Final:
             return self.nutrientes
             
     def clicar_adicionar(self):
-        print((self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100)
+        self.listbox_ad.insert(tk.END, "{0}:      Carboidratos: {1}      Proteinas: {2}      Gorduras: {3}".format(self.v2.get(),self.ConsumoCarbo(),self.ConsumoProteina(),self.ConsumoGordura()))
         
     def clicar_remover(self):
         return
