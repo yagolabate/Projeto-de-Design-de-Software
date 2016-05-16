@@ -32,6 +32,7 @@ class Projeto_Final:
         self.cg = tk.StringVar()
         self.cp = tk.StringVar()
         self.alimento = tk.StringVar()
+        self.quantidade = tk.StringVar()
 
         self.genero = tk.StringVar()
 
@@ -335,7 +336,7 @@ class Projeto_Final:
         
         self.consumo_carbo = ttk.Label(self.pagina3)
         self.consumo_carbo.grid(row = 3, column = 1, sticky = 'nswe')
-        self.consumo_carbo.configure(text = self.ConsumoCarbo(), background = 'light blue' )
+        self.consumo_carbo.configure(background = 'light blue' )
         
         self.proteina_2 = ttk.Label(self.pagina3)
         self.proteina_2.grid(row = 3, column = 2, sticky = 'nse')
@@ -343,7 +344,7 @@ class Projeto_Final:
         
         self.consumo_proteina = ttk.Label(self.pagina3)
         self.consumo_proteina.grid(row = 3, column = 3, sticky = 'nswe')
-        self.consumo_proteina.configure(text= self.ConsumoProteina(), background = 'light blue')
+        self.consumo_proteina.configure(background = 'light blue')
         
         self.gordura_2 = ttk.Label(self.pagina3)
         self.gordura_2.grid(row = 3, column = 4, sticky = 'nse')
@@ -351,7 +352,7 @@ class Projeto_Final:
         
         self.consumo_gordura = ttk.Label(self.pagina3)
         self.consumo_gordura.grid(row = 3, column = 5, sticky = 'nswe')
-        self.consumo_gordura.configure(text= self.ConsumoGordura(), background = 'light blue')
+        self.consumo_gordura.configure(background = 'light blue')
         
         self.frase_3 = ttk.Label(self.pagina3)
         self.frase_3.grid(row = 4, column = 0, sticky = 'nsw')
@@ -380,12 +381,11 @@ class Projeto_Final:
         self.quan_alimento.grid(row = 5, column = 3, columnspan = 1, sticky = 'nswe')
         self.quan_alimento.configure(text = "Quantidade do alimento(g):", background = 'light blue')
         
-        self.entry_quan = ttk.Entry(self.pagina3)
+        self.entry_quan = ttk.Entry(self.pagina3, textvariable = self.quantidade)
         self.entry_quan.grid(row = 5, column = 4)
         
-        self.list_alimentos = tk.Listbox(self.pagina3)
         
-        self.alimentos_ad = ttk.Scrollbar(self.pagina3, orient = 'vertical')
+        self.alimentos_ad = ttk.Scrollbar(self.pagina3)
         self.alimentos_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nse')
             
         self.botao_voltar_pag2 = ttk.Button(self.pagina3, width=20)
@@ -670,13 +670,16 @@ class Projeto_Final:
 
         
     def ConsumoCarbo(self):
-        return 0
+        self.carbo = (self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100
+        return self.carbo
         
     def ConsumoProteina(self):
-        return 0
+        self.prot = (self.comidas[self.v1.get()][self.v2.get()][1]*self.quantidade.get())/100
+        return self.prot
         
     def ConsumoGordura(self):
-        return 0
+        self.gord = (self.comidas[self.v1.get()][self.v2.get()][2]*self.quantidade.get())/100
+        return self.gord
         
 
         
