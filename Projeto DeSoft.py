@@ -666,7 +666,7 @@ class Projeto_Final:
         self.listbox_ad.insert(tk.END, "{0}:      Carboidratos: {1}      Proteinas: {2}      Gorduras: {3}".format(self.v2.get(),self.ConsumoCarbo(),self.ConsumoProteina(),self.ConsumoGordura()))
         
     def clicar_remover(self):
-        return
+        self.listbox_ad.delete(tk.END)
 
         
     def ConsumoCarbo(self):
