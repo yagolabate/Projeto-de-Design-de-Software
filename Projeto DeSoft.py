@@ -367,7 +367,6 @@ class Projeto_Final:
         self.v1 = tk.StringVar(self.pagina3)
         self.v1.set(self.categoria_comida_inicial)
         
-        print(self.categorias_comida)
         self.d1 = ttk.OptionMenu(self.pagina3, self.v1, "Escolha a categoria", *self.categorias_comida, command=self.option_1_selected)
         self.d1.grid(row=5, column=1, columnspan = 2)
         
