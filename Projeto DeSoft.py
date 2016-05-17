@@ -33,6 +33,9 @@ class Projeto_Final:
         self.cp = tk.StringVar()
         self.alimento = tk.StringVar()
         self.quantidade = tk.DoubleVar()
+        self.carbo_consumidos = tk.StringVar()
+        self.prot_consumidos = tk.StringVar()
+        self.gordura_consumidos = tk.StringVar()
 
         self.genero = tk.StringVar()
 
@@ -342,23 +345,23 @@ class Projeto_Final:
         
         self.consumo_carbo = ttk.Label(self.pagina3)
         self.consumo_carbo.grid(row = 3, column = 1, sticky = 'nswe')
-        self.consumo_carbo.configure(background = 'light blue' )
+        self.consumo_carbo.configure(background = 'light blue', textvariable = self.carbo_consumidos)
         
         self.proteina_2 = ttk.Label(self.pagina3)
-        self.proteina_2.grid(row = 3, column = 1, sticky = 'nsw')
+        self.proteina_2.grid(row = 3, column = 2, sticky = 'nsw')
         self.proteina_2.configure(text = "Proteínas(g):", background = 'light blue')
         
         self.consumo_proteina = ttk.Label(self.pagina3)
         self.consumo_proteina.grid(row = 3, column = 3, sticky = 'nswe')
-        self.consumo_proteina.configure(background = 'light blue')
+        self.consumo_proteina.configure(background = 'light blue', textvariable = self.prot_consumidos)
         
         self.gordura_2 = ttk.Label(self.pagina3)
-        self.gordura_2.grid(row = 3, column = 3, sticky = 'nsw')
+        self.gordura_2.grid(row = 3, column = 4, sticky = 'nsw')
         self.gordura_2.configure(text = "Gorduras(g):", background = 'light blue')
         
         self.consumo_gordura = ttk.Label(self.pagina3)
         self.consumo_gordura.grid(row = 3, column = 5, sticky = 'nswe')
-        self.consumo_gordura.configure(background = 'light blue')
+        self.consumo_gordura.configure(background = 'light blue', textvariable = self.gordura_consumidos)
         
         self.frase_3 = ttk.Label(self.pagina3)
         self.frase_3.grid(row = 7, column = 0, sticky = 'nsw')
@@ -445,6 +448,9 @@ class Projeto_Final:
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
+        self.carbo_consumidos.set(0)
+        self.prot_consumidos.set(0)
+        self.gordura_consumidos.set(0)
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2 + 500
@@ -488,6 +494,9 @@ class Projeto_Final:
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
+        self.carbo_consumidos.set(0)
+        self.prot_consumidos.set(0)
+        self.gordura_consumidos.set(0)
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375 + 500
@@ -530,6 +539,9 @@ class Projeto_Final:
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
+        self.carbo_consumidos.set(0)
+        self.prot_consumidos.set(0)
+        self.gordura_consumidos.set(0)
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55 + 500
@@ -572,6 +584,9 @@ class Projeto_Final:
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
+        self.carbo_consumidos.set(0)
+        self.prot_consumidos.set(0)
+        self.gordura_consumidos.set(0)
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725 + 500
@@ -615,6 +630,9 @@ class Projeto_Final:
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
+        self.carbo_consumidos.set(0)
+        self.prot_consumidos.set(0)
+        self.gordura_consumidos.set(0)
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9 + 500
@@ -681,15 +699,17 @@ class Projeto_Final:
         
     def ConsumoCarbo(self):
         self.carbo = (self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100
-        
+        self.carbo_consumidos.set(float(self.carbo_consumidos.get()) + self.carbo)
         return self.carbo
         
     def ConsumoProteina(self):
         self.prot = (self.comidas[self.v1.get()][self.v2.get()][1]*self.quantidade.get())/100
+        self.prot_consumidos.set(float(self.prot_consumidos.get()) + self.prot)        
         return self.prot
         
     def ConsumoGordura(self):
         self.gord = (self.comidas[self.v1.get()][self.v2.get()][2]*self.quantidade.get())/100
+        self.gordura_consumidos.set(float(self.gordura_consumidos.get()) + self.gord)        
         return self.gord
         
     def irpagina3(self):
