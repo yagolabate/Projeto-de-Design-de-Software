@@ -95,6 +95,11 @@ class Projeto_Final:
         self.bseguinte.configure(text = "Seguinte", )
         self.bseguinte.configure(command = self.clicar_seguinte)
         
+        self.ir_pagina_3 = tk.Button(self.pagina0)
+        self.ir_pagina_3.grid(row=4,column=0,sticky="nsew")
+        self.ir_pagina_3.configure(text="PAGINA 3")
+        self.ir_pagina_3.configure(command=self.irpagina3)
+        
         
         
         
@@ -276,7 +281,7 @@ class Projeto_Final:
         self.pagina3.rowconfigure(6, minsize = 75)
         self.pagina3.rowconfigure(7, minsize = 150)
         self.pagina3.rowconfigure(8, minsize = 75)
-        self.pagina3.columnconfigure(0, minsize = 100)
+        self.pagina3.columnconfigure(0, minsize = 50)
         self.pagina3.columnconfigure(1, minsize = 50)
         self.pagina3.columnconfigure(2, minsize = 150)
         self.pagina3.columnconfigure(3, minsize = 150)
@@ -289,11 +294,11 @@ class Projeto_Final:
         
         self.frase_1 = ttk.Label(self.pagina3)
         self.frase_1.grid(row = 0, column = 0, sticky = 'nsw')
-        self.frase_1.configure(text = "Quantidades a serem consumidas:")
+        self.frase_1.configure(text = "Quantidades a serem consumidas:", font ="ComicSansMS 14")
         self.frase_1.configure(background = 'light blue')
         
         self.carboidrato = ttk.Label(self.pagina3)
-        self.carboidrato.grid(row = 1, column = 0, sticky = 'nse')
+        self.carboidrato.grid(row = 1, column = 0, sticky = 'nsw')
         self.carboidrato.configure(text = "Carboidratos(g):")
         self.carboidrato.configure(background = 'light blue')
         
@@ -305,18 +310,18 @@ class Projeto_Final:
         
         
         self.proteina = ttk.Label(self.pagina3)
-        self.proteina.grid(row = 1, column = 2, sticky = 'nse')
+        self.proteina.grid(row = 1, column = 1, sticky = 'nsw')
         self.proteina.configure(text = "Proteínas(g):")
         self.proteina.configure(background = 'light blue')        
         
         self.total_proteina = ttk.Label(self.pagina3)
-        self.total_proteina.grid(row = 1, column = 3, sticky = 'nswe')
+        self.total_proteina.grid(row = 1, column = 2, sticky = 'nswe')
         self.total_proteina.configure(textvariable = self.cp)
         self.total_proteina.configure(background = 'light blue')
 
         
         self.gordura = ttk.Label(self.pagina3)
-        self.gordura.grid(row = 1, column = 4, sticky = 'nse')
+        self.gordura.grid(row = 1, column = 3, sticky = 'nsw')
         self.gordura.configure(text = "Gorduras(g):")
         self.gordura.configure(background = 'light blue')
         
@@ -327,11 +332,11 @@ class Projeto_Final:
         
         self.frase_2 = ttk.Label(self.pagina3)
         self.frase_2.grid(row = 2, column = 0, sticky = 'nsw')
-        self.frase_2.configure(text = "Quantidades já consumidas:")
+        self.frase_2.configure(text = "Quantidades já consumidas:", font ="ComicSansMS 14")
         self.frase_2.configure(background = 'light blue')
         
         self.carboidrato_2 = ttk.Label(self.pagina3)
-        self.carboidrato_2.grid(row = 3, column = 0, sticky = 'nse')
+        self.carboidrato_2.grid(row = 3, column = 0, sticky = 'nsw')
         self.carboidrato_2.configure(text = "Carboidratos(g):")
         self.carboidrato_2.configure(background = 'light blue')
         
@@ -340,7 +345,7 @@ class Projeto_Final:
         self.consumo_carbo.configure(background = 'light blue' )
         
         self.proteina_2 = ttk.Label(self.pagina3)
-        self.proteina_2.grid(row = 3, column = 2, sticky = 'nse')
+        self.proteina_2.grid(row = 3, column = 1, sticky = 'nsw')
         self.proteina_2.configure(text = "Proteínas(g):", background = 'light blue')
         
         self.consumo_proteina = ttk.Label(self.pagina3)
@@ -348,7 +353,7 @@ class Projeto_Final:
         self.consumo_proteina.configure(background = 'light blue')
         
         self.gordura_2 = ttk.Label(self.pagina3)
-        self.gordura_2.grid(row = 3, column = 4, sticky = 'nse')
+        self.gordura_2.grid(row = 3, column = 3, sticky = 'nsw')
         self.gordura_2.configure(text = "Gorduras(g):", background = 'light blue')
         
         self.consumo_gordura = ttk.Label(self.pagina3)
@@ -356,25 +361,25 @@ class Projeto_Final:
         self.consumo_gordura.configure(background = 'light blue')
         
         self.frase_3 = ttk.Label(self.pagina3)
-        self.frase_3.grid(row = 4, column = 0, sticky = 'nsw')
-        self.frase_3.configure(text = "Alimentos consumidos:", background = 'light blue')
+        self.frase_3.grid(row = 6, column = 0, sticky = 'nsw')
+        self.frase_3.configure(text = "Alimentos consumidos:", background = 'light blue', font ="ComicSansMS 14")
         
         self.ad_alimento = ttk.Label(self.pagina3)
         self.ad_alimento.grid(row = 5, column = 0, columnspan = 1, sticky = 'nswe')
-        self.ad_alimento.configure(text = "Adicione um alimento:", background = 'light blue')
+        self.ad_alimento.configure(text = "Adicione um alimento:", background = 'light blue', font ="ComicSansMS 14")
         
         
         self.v1 = tk.StringVar(self.pagina3)
         self.v1.set(self.categoria_comida_inicial)
         
         self.d1 = ttk.OptionMenu(self.pagina3, self.v1, "Escolha a categoria", *self.categorias_comida, command=self.option_1_selected)
-        self.d1.grid(row=5, column=1, columnspan = 2)
+        self.d1.grid(row=5, column=1,sticky="w")
         
         self.v2 = tk.StringVar(self.pagina3)
         self.v2.set(self.comida_inicial) # default value
         
         self.d2 = ttk.OptionMenu(self.pagina3, self.v2, "Escolha a comida", *self.comidas_na_categoria, command=self.option_2_selected)
-        self.d2.grid(row=6, column=1, columnspan = 2)
+        self.d2.grid(row=6, column=1,sticky="w")
         
         
         self.quan_alimento = ttk.Label(self.pagina3)
@@ -384,22 +389,23 @@ class Projeto_Final:
         self.entry_quan = ttk.Entry(self.pagina3, textvariable = self.quantidade)
         self.entry_quan.grid(row = 5, column = 4)
         
-        self.listbox_ad = tk.Listbox(self.pagina3)  
-        self.listbox_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nsew')
+        self.listbox_ad = tk.Listbox(self.pagina3, width=100)  
+        self.listbox_ad.grid(row = 7, column = 0, columnspan = 4, sticky = 'nsw')
+        
          
         self.botao_voltar_pag2 = ttk.Button(self.pagina3, width=20)
-        self.botao_voltar_pag2.grid(row=8,column=4, columnspan = 2, sticky='s')
+        self.botao_voltar_pag2.grid(row=8,column=4,sticky='s')
         self.botao_voltar_pag2.configure(text="Voltar")
         self.botao_voltar_pag2.configure(command = self.pagina2.tkraise)
         
         self.botao_adicionar_alimento = ttk.Button(self.pagina3, width=20)
-        self.botao_adicionar_alimento.grid(row=6,column=4,columnspan = 2)
+        self.botao_adicionar_alimento.grid(row=6,column=4)
         self.botao_adicionar_alimento.configure(text="Adicionar alimento")
         self.botao_adicionar_alimento.configure(command=self.clicar_adicionar)
         
         
         self.botao_remover_alimento = ttk.Button(self.pagina3, width=20)
-        self.botao_remover_alimento.grid(row=7,column=4,columnspan = 2, sticky="n")
+        self.botao_remover_alimento.grid(row=7,column=4,sticky="n")
         self.botao_remover_alimento.configure(text="Remover alimento")
         self.botao_remover_alimento.configure(command=self.clicar_remover)
     
@@ -665,7 +671,7 @@ class Projeto_Final:
         self.listbox_ad.insert(tk.END, "{0}:      Carboidratos: {1}      Proteinas: {2}      Gorduras: {3}".format(self.v2.get(),self.ConsumoCarbo(),self.ConsumoProteina(),self.ConsumoGordura()))
         
     def clicar_remover(self):
-        return
+        self.listbox_ad.delete(tk.END)
 
         
     def ConsumoCarbo(self):
@@ -680,6 +686,8 @@ class Projeto_Final:
         self.gord = (self.comidas[self.v1.get()][self.v2.get()][2]*self.quantidade.get())/100
         return self.gord
         
+    def irpagina3(self):
+        self.pagina3.tkraise()
 
         
         
