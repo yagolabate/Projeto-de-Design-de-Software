@@ -676,6 +676,7 @@ class Projeto_Final:
         
     def ConsumoCarbo(self):
         self.carbo = (self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100
+        
         return self.carbo
         
     def ConsumoProteina(self):
