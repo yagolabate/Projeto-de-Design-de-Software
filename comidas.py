@@ -625,8 +625,8 @@ def ler_dicionario_comidas():
             "	Soja, extrato solúvel, natural, fluido	"	:	[	4.3	,	2.4	,	1.6	]	,
             "	Soja, extrato solúvel, pó	"	:	[	28.5	,	35.7	,	26.2	]	,
             "	Soja, queijo (tofu)	"	:	[	2.1	,	6.6	,	4.0	]	,
-            "	0emoço, cru	"	:	[	43.8	,	33.6	,	10.3	]	,
-            "	0emoço, em conserva	"	:	[	12.4	,	11.1	,	3.8	]	,
+            "	Tremoço, cru	"	:	[	43.8	,	33.6	,	10.3	]	,
+            "	Tremoço, em conserva	"	:	[	12.4	,	11.1	,	3.8	]	,
         
         },
         "Nozes e Sementes": {
