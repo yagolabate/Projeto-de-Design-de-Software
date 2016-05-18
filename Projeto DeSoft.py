@@ -73,30 +73,23 @@ class Projeto_Final:
         self.pagina0.grid(row=0,column=0, sticky="nsew")
         self.pagina0.configure(background = 'light blue')
         
-        self.ltitulo = tk.Label(self.pagina0)
+        self.ltitulo = ttk.Label(self.pagina0)
         self.ltitulo.grid(row = 0, columnspan = 2, sticky = '')
-        self.ltitulo.configure(text = 'Bem vindo ao:', font = 100, background = 'light blue')
-        
-        self.lnome = ttk.Label(self.pagina0)
-        self.lnome.grid(row = 1, column = 0, sticky = 'e')
-        self.lnome.configure(text = "Nome:", background = 'light blue')
-        
-        self.bnome = ttk.Entry(self.pagina0)
-        self.bnome.grid(row = 1, column = 1, sticky = 'w')
-        
-        self.lsobrenome = ttk.Label(self.pagina0)
-        self.lsobrenome.grid(row = 2, column = 0, sticky = 'e')
-        self.lsobrenome.configure(text = "Sobrenome:", background = 'light blue')
-        
-        self.bsobrenome = ttk.Entry(self.pagina0)
-        self.bsobrenome.grid(row = 2, column = 1, sticky = 'w')
+        self.ltitulo.configure(text = 'Bem vindo ao nosso programa:', font = 100, background = 'light blue')
         
         self.llogin = ttk.Label(self.pagina0)
-        self.llogin.grid(row = 3, column = 0, sticky = 'e')
+        self.llogin.grid(row = 1, column = 0, sticky = 'e')
         self.llogin.configure(text = "Login:", background = 'light blue')
         
         self.blogin = ttk.Entry(self.pagina0)
-        self.blogin.grid(row = 3, column = 1, sticky = 'w')
+        self.blogin.grid(row = 1, column = 1, sticky = 'w')
+        
+        self.lsenha = ttk.Label(self.pagina0)
+        self.lsenha.grid(row = 2, column = 0, sticky = 'e')
+        self.lsenha.configure(text = "Senha:", background = 'light blue')
+        
+        self.bsenha = ttk.Entry(self.pagina0)
+        self.bsenha.grid(row = 2, column = 1, sticky = 'w')
         
         self.bseguinte = ttk.Button(self.pagina0)
         self.bseguinte.grid(row = 4, column = 1, sticky = 'e')
@@ -107,6 +100,9 @@ class Projeto_Final:
         self.ir_pagina_3.grid(row=4,column=0,sticky="nsew")
         self.ir_pagina_3.configure(text="PAGINA 3")
         self.ir_pagina_3.configure(command=self.irpagina3)
+        
+        
+        
         
         
         
