@@ -3,12 +3,11 @@ import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter import ttk
 import comidas
+import pickle
 
 import ToolTip as ttp
 #from firebase import firebase
 #firebase = firebase.FirebaseApplication('https://projeto-de-desoft.firebaseio.com/')
-
-
 
 class Projeto_Final:
     
@@ -17,6 +16,9 @@ class Projeto_Final:
         
                 
         self.window = tk.Tk()
+        
+        self.window.protocol("WM_DELETE_WINDOW", self.terminar)
+        
         self.window.title("Projeto final")
         self.window.geometry('900x600+220+50')
         self.window.rowconfigure(0, minsize = 600)
@@ -52,6 +54,7 @@ class Projeto_Final:
         self.comidas_na_categoria = [c for c in self.comidas[self.categoria_comida_inicial]]
         self.comida_inicial = self.comidas_na_categoria[0]    
         
+        self.dici = {}
         
         #cadastro de usuario
         
@@ -429,6 +432,13 @@ class Projeto_Final:
     
     def iniciar(self):
         self.window.mainloop()
+
+    def terminar(self):
+         
+        
+        
+        print("floo")
+        self.window.quit()
         
     def clicar_seguinte(self):
         self.pagina1.tkraise()
@@ -454,6 +464,7 @@ class Projeto_Final:
         self.carbo_consumidos.set(0)
         self.prot_consumidos.set(0)
         self.gordura_consumidos.set(0)
+        
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2 + 500
@@ -500,6 +511,7 @@ class Projeto_Final:
         self.carbo_consumidos.set(0)
         self.prot_consumidos.set(0)
         self.gordura_consumidos.set(0)
+        
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.375 + 500
@@ -545,6 +557,7 @@ class Projeto_Final:
         self.carbo_consumidos.set(0)
         self.prot_consumidos.set(0)
         self.gordura_consumidos.set(0)
+        
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55 + 500
@@ -590,6 +603,7 @@ class Projeto_Final:
         self.carbo_consumidos.set(0)
         self.prot_consumidos.set(0)
         self.gordura_consumidos.set(0)
+        
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725 + 500
@@ -636,6 +650,7 @@ class Projeto_Final:
         self.carbo_consumidos.set(0)
         self.prot_consumidos.set(0)
         self.gordura_consumidos.set(0)
+         
         if o == 1:
             if g == 'Masculino':
                 k = ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.9 + 500
@@ -696,29 +711,35 @@ class Projeto_Final:
     def clicar_adicionar(self):
         self.listbox_ad.insert(tk.END, "{0}:      Carboidratos: {1}      Proteinas: {2}      Gorduras: {3}".format(self.v2.get(),self.ConsumoCarbo(),self.ConsumoProteina(),self.ConsumoGordura()))
         
+        
+        
     def clicar_remover(self):
         self.listbox_ad.delete(tk.END)
-
+        print(self.dici)
+        
         
     def ConsumoCarbo(self):
         self.carbo = (self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100
-        self.carbo_consumidos.set(float(self.carbo_consumidos.get()) + self.carbo)
+        self.carbo_consumidos.set(float(self.carbo_consumidos.get()) + self.carbo)        
         return self.carbo
+        
         
     def ConsumoProteina(self):
         self.prot = (self.comidas[self.v1.get()][self.v2.get()][1]*self.quantidade.get())/100
-        self.prot_consumidos.set(float(self.prot_consumidos.get()) + self.prot)        
+        self.prot_consumidos.set(float(self.prot_consumidos.get()) + self.prot)               
         return self.prot
         
     def ConsumoGordura(self):
         self.gord = (self.comidas[self.v1.get()][self.v2.get()][2]*self.quantidade.get())/100
-        self.gordura_consumidos.set(float(self.gordura_consumidos.get()) + self.gord)        
+        self.gordura_consumidos.set(float(self.gordura_consumidos.get()) + self.gord)   
+        
         return self.gord
         
     def irpagina3(self):
         self.pagina3.tkraise()
 
-        
+
+            
         
     
         
