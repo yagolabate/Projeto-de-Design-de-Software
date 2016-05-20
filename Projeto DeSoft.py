@@ -39,9 +39,16 @@ class Projeto_Final:
         self.prot_consumidos = tk.StringVar()
         self.gordura_consumidos = tk.StringVar()
         
+        arquivo = open("projeto.pickle", "rb")
+        self.dici = pickle.load(arquivo)
+        
         self.variavel_carbo_consumido = 0
+        self.variavel_carbo_consumido += self.dici['carboidratos consumidas']
         self.variavel_prot_consumido = 0
+        self.variavel_prot_consumido += self.dici['proteina consumidos']
         self.variavel_gord_consumido = 0  
+        self.variavel_gord_consumido += self.dici['gordura consumidos']
+
 
 
         self.genero = tk.StringVar()
@@ -59,7 +66,7 @@ class Projeto_Final:
         self.comidas_na_categoria = [c for c in self.comidas[self.categoria_comida_inicial]]
         self.comida_inicial = self.comidas_na_categoria[0]    
         
-        self.dici = {}
+
         
         
         #cadastro de usuario
@@ -425,15 +432,21 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
  
-        self.carbo_consumidos.set(0)
-        self.prot_consumidos.set(0)
-        self.gordura_consumidos.set(0)
+        if self.carbo_consumidos.get() != "Carboidratos(g): 0":         
+            self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.dici['carboidratos consumidas']))
+        else:
+            self.carbo_consumidos.set("Carboidratos(g): 0")
+            
+        if self.prot_consumidos.get() != "Proteinas(g): 0":         
+            self.prot_consumidos.set("Proteinas(g): {0}".format(self.dici['proteina consumidos']))
+        else:
+            self.prot_consumidos.set("Proteinas(g): 0")
         
-
-        self.carbo_consumidos.set("Carboidratos(g): 0")
-        self.prot_consumidos.set("Proteinas(g): 0")
-        self.gordura_consumidos.set("Gorduras(g): 0")
-
+        if self.gordura_consumidos.get() != "Gorduras(g): 0":         
+            self.gordura_consumidos.set("Gorduras(g): {0}".format(self.dici['gordura consumidos']))
+        else:
+            self.gordura_consumidos.set("Gorduras(g): 0")
+            
         if o == 1:
             if g == 'Masculino':
                 self.k= ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.2 + 500
@@ -478,14 +491,21 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
 
-        self.carbo_consumidos.set(0)
-        self.prot_consumidos.set(0)
-        self.gordura_consumidos.set(0)
+        if self.carbo_consumidos.get() != "Carboidratos(g): 0":         
+            self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.dici['carboidratos consumidas']))
+        else:
+            self.carbo_consumidos.set("Carboidratos(g): 0")
+            
+        if self.prot_consumidos.get() != "Proteinas(g): 0":         
+            self.prot_consumidos.set("Proteinas(g): {0}".format(self.dici['proteina consumidos']))
+        else:
+            self.prot_consumidos.set("Proteinas(g): 0")
         
-
-        self.carbo_consumidos.set("Carboidratos(g): 0")
-        self.prot_consumidos.set("Proteinas(g): 0")
-        self.gordura_consumidos.set("Gorduras(g): 0")
+        if self.gordura_consumidos.get() != "Gorduras(g): 0":         
+            self.gordura_consumidos.set("Gorduras(g): {0}".format(self.dici['gordura consumidos']))
+        else:
+            self.gordura_consumidos.set("Gorduras(g): 0")
+            
 
         if o == 1:
             if g == 'Masculino':
@@ -530,14 +550,21 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
 
-        self.carbo_consumidos.set(0)
-        self.prot_consumidos.set(0)
-        self.gordura_consumidos.set(0)
-
-        self.carbo_consumidos.set("Carboidratos(g): 0")
-        self.prot_consumidos.set("Proteinas(g): 0")
-        self.gordura_consumidos.set("Gorduras(g): 0")
-
+        if self.carbo_consumidos.get() != "Carboidratos(g): 0":         
+            self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.dici['carboidratos consumidas']))
+        else:
+            self.carbo_consumidos.set("Carboidratos(g): 0")
+            
+        if self.prot_consumidos.get() != "Proteinas(g): 0":         
+            self.prot_consumidos.set("Proteinas(g): {0}".format(self.dici['proteina consumidos']))
+        else:
+            self.prot_consumidos.set("Proteinas(g): 0")
+        
+        if self.gordura_consumidos.get() != "Gorduras(g): 0":         
+            self.gordura_consumidos.set("Gorduras(g): {0}".format(self.dici['gordura consumidos']))
+        else:
+            self.gordura_consumidos.set("Gorduras(g): 0")
+            
         if o == 1:
             if g == 'Masculino':
                 self.k= ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.55 + 500
@@ -581,13 +608,21 @@ class Projeto_Final:
         a = float(self.altura.get())
         i = float(self.idade.get())
 
-        self.carbo_consumidos.set(0)
-        self.prot_consumidos.set(0)
-        self.gordura_consumidos.set(0)
-
-        self.carbo_consumidos.set("Carboidratos(g): 0")
-        self.prot_consumidos.set("Proteinas(g): 0")
-        self.gordura_consumidos.set("Gorduras(g): 0")
+        if self.carbo_consumidos.get() != "Carboidratos(g): 0":         
+            self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.dici['carboidratos consumidas']))
+        else:
+            self.carbo_consumidos.set("Carboidratos(g): 0")
+            
+        if self.prot_consumidos.get() != "Proteinas(g): 0":         
+            self.prot_consumidos.set("Proteinas(g): {0}".format(self.dici['proteina consumidos']))
+        else:
+            self.prot_consumidos.set("Proteinas(g): 0")
+        
+        if self.gordura_consumidos.get() != "Gorduras(g): 0":         
+            self.gordura_consumidos.set("Gorduras(g): {0}".format(self.dici['gordura consumidos']))
+        else:
+            self.gordura_consumidos.set("Gorduras(g): 0")
+            
         if o == 1:
             if g == 'Masculino':
                 self.k= ((13.4*p)+(4.8*a)-(5.68*i)+88.36)*1.725 + 500
@@ -631,15 +666,26 @@ class Projeto_Final:
         p = float(self.peso.get())
         a = float(self.altura.get())
         i = float(self.idade.get())
+        
 
-        self.carbo_consumidos.set(0)
-        self.prot_consumidos.set(0)
-        self.gordura_consumidos.set(0)
+
+        if self.carbo_consumidos.get() != "Carboidratos(g): 0":         
+            self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.dici['carboidratos consumidas']))
+        else:
+            self.carbo_consumidos.set("Carboidratos(g): 0")
+            
+        if self.prot_consumidos.get() != "Proteinas(g): 0":         
+            self.prot_consumidos.set("Proteinas(g): {0}".format(self.dici['proteina consumidos']))
+        else:
+            self.prot_consumidos.set("Proteinas(g): 0")
+        
+        if self.gordura_consumidos.get() != "Gorduras(g): 0":         
+            self.gordura_consumidos.set("Gorduras(g): {0}".format(self.dici['gordura consumidos']))
+        else:
+            self.gordura_consumidos.set("Gorduras(g): 0")
          
 
-        self.carbo_consumidos.set("Carboidratos(g): 0")
-        self.prot_consumidos.set("Proteinas(g): 0")
-        self.gordura_consumidos.set("Gorduras(g): 0")
+        
 
         if o == 1:
             if g == 'Masculino':
