@@ -402,6 +402,11 @@ class Projeto_Final:
         self.botao_remover_alimento.configure(text="Remover alimento")
         self.botao_remover_alimento.configure(command=self.clicar_remover)
     
+    
+        self.botao_finalizar = ttk.Button(self.pagina3)
+        self.botao_finalizar.grid(row= 7, column=3 ,sticky='s')
+        self.botao_finalizar.configure(text = 'Finalizar o dia')
+        self.botao_finalizar.configure(command = self.clicar_finalizar)
         
         #Chamando a primeira frame
         self.pagina0.tkraise() 
@@ -794,6 +799,7 @@ class Projeto_Final:
     def irpagina3(self):
         self.pagina3.tkraise()
         
+           
         
     def terminar(self):
         #criando dicionario
@@ -815,6 +821,19 @@ class Projeto_Final:
         
         print(self.dici)
         self.window.quit()
+        
+    def clicar_finalizar(self):
+        self.dici['carboidratos consumidas'] = 0
+        self.dici['proteina consumidos'] = 0
+        self.dici['gordura consumidos'] = 0
+        self.dici['carboidratos a serem consumidos'] = 0
+        self.dici['proteinas a serem consumidos'] = 0 
+        self.dici['gorduras a serem consumidos'] = 0
+        salvar = open("projeto.pickle", "wb") 
+        pickle.dump(self.dici, salvar)
+        salvar.close()
+        print(self.dici)
+        self.window.quit() 
         
 
             
