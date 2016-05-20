@@ -64,6 +64,7 @@ class Projeto_Final:
         
         self.dici = {}
         
+        self.lista_alimentos_consumidos = []
         
         #cadastro de usuario
         
@@ -702,11 +703,20 @@ class Projeto_Final:
             return self.nutrientes
             
     def clicar_adicionar(self):
+        self.lista_alimentos_consumidos.append([self.ConsumoCarbo(),self.ConsumoProteina(),self.ConsumoGordura()])
         self.listbox_ad.insert(tk.END, "{0}:      Carboidratos: {1}      Proteinas: {2}      Gorduras: {3}".format(self.v2.get(),self.ConsumoCarbo(),self.ConsumoProteina(),self.ConsumoGordura()))
         
         
         
     def clicar_remover(self):
+      #  if len(self.lista_alimentos_consumidos) == 0:
+      #      return
+            
+      #  ultimo_alimento = self.lista_alimentos_consumidos[-1]
+      # ultimo_carbo = ultimo_alimento[0]
+      # ultimo_prot = ultimo_alimento[1]
+      # ultimo_gord = ultimo_alimento[2]
+        
         self.variavel_carbo_consumido -= float(self.ultimo_alimento_carbo.get())
         self.carbo_consumidos.set("Carboidratos(g): {0}" .format(self.variavel_carbo_consumido))
         self.variavel_prot_consumido -= float(self.ultimo_alimento_prot.get())
