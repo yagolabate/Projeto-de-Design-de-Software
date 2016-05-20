@@ -34,7 +34,7 @@ class Projeto_Final:
         self.cg = tk.StringVar()
         self.cp = tk.StringVar()
         self.alimento = tk.StringVar()
-        self.quantidade = tk.DoubleVar()
+        self.quantidade = tk.StringVar()
         self.carbo_consumidos = tk.StringVar()
         self.prot_consumidos = tk.StringVar()
         self.gordura_consumidos = tk.StringVar()
@@ -42,7 +42,10 @@ class Projeto_Final:
         self.variavel_carbo_consumido = 0
         self.variavel_prot_consumido = 0
         self.variavel_gord_consumido = 0  
-
+        
+        self.ultimo_alimento_carbo = tk.StringVar()
+        self.ultimo_alimento_prot = tk.StringVar()
+        self.ultimo_alimento_gord = tk.StringVar()
 
         self.genero = tk.StringVar()
 
@@ -704,31 +707,40 @@ class Projeto_Final:
         
         
     def clicar_remover(self):
+        self.variavel_carbo_consumido -= float(self.ultimo_alimento_carbo.get())
+        self.carbo_consumidos.set("Carboidratos(g): {0}" .format(self.variavel_carbo_consumido))
+        self.variavel_prot_consumido -= float(self.ultimo_alimento_prot.get())
+        self.prot_consumidos.set("Proteinas(g): {0}" .format(self.variavel_prot_consumido))
+        self.variavel_gord_consumido -= float(self.ultimo_alimento_gord.get())
+        self.gordura_consumidos.set("Gorduras(g): {0}" .format(self.variavel_gord_consumido))
         self.listbox_ad.delete(tk.END)
         
         
         
     def ConsumoCarbo(self):        
         
-        self.carbo_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][0]*self.quantidade.get())/100
+        self.carbo_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][0]*float(self.quantidade.get()))/100
         self.variavel_carbo_consumido += self.carbo_alimento_quantidade
         self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.variavel_carbo_consumido))
+        self.ultimo_alimento_carbo.set(self.carbo_alimento_quantidade)        
         return self.carbo_alimento_quantidade
      
         
         
     def ConsumoProteina(self):
         
-        self.prot_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][1]*self.quantidade.get())/100
+        self.prot_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][1]*float(self.quantidade.get()))/100
         self.variavel_prot_consumido += self.prot_alimento_quantidade
         self.prot_consumidos.set("Proteinas(g): {0}".format(self.variavel_prot_consumido))
+        self.ultimo_alimento_prot.set(self.prot_alimento_quantidade)
         return self.prot_alimento_quantidade
         
         
     def ConsumoGordura(self):
-        self.gord_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][2]*self.quantidade.get())/100
+        self.gord_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][2]*float(self.quantidade.get()))/100
         self.variavel_gord_consumido += self.gord_alimento_quantidade
         self.gordura_consumidos.set("Gorduras(g): {0}".format(self.variavel_gord_consumido))
+        self.ultimo_alimento_gord.set(self.gord_alimento_quantidade)
         return self.gord_alimento_quantidade
 
 
