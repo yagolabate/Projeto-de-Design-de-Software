@@ -82,7 +82,7 @@ class Projeto_Final:
         
         
         
-        self.pagina0 = tk.Frame(self.window)
+        '''self.pagina0 = tk.Frame(self.window)
         self.pagina0.rowconfigure(0, minsize = 250)
         self.pagina0.rowconfigure(1, minsize = 50)
         self.pagina0.rowconfigure(2, minsize = 50)
@@ -119,7 +119,7 @@ class Projeto_Final:
         self.ir_pagina_3 = tk.Button(self.pagina0)
         self.ir_pagina_3.grid(row=4,column=0,sticky="nsew")
         self.ir_pagina_3.configure(text="PAGINA 3")
-        self.ir_pagina_3.configure(command=self.irpagina3)
+        self.ir_pagina_3.configure(command=self.irpagina3)'''
         
         
         
@@ -416,15 +416,15 @@ class Projeto_Final:
         
         #Chamando a primeira frame
         if self.inicio == 0:
-            self.pagina0.tkraise() 
+            self.pagina1.tkraise() 
         else:
             self.pagina3.tkraise()
             self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.dici['carboidratos consumidas']))
             self.prot_consumidos.set("Proteinas(g): {0}".format(self.dici['proteina consumidos']))
             self.gordura_consumidos.set("Gorduras(g): {0}".format(self.dici['gordura consumidos']))
-            self.cc.set("Carboidratos(g): {0}".format(int(self.dici['carboidratos a serem consumidos'])))
-            self.cp.set("Proteinas(g): {0}".format(int(self.dici['proteinas a serem consumidos'])))
-            self.cg.set("Gorduras(g): {0}".format(int(self.dici['gorduras a serem consumidos'])))
+            self.cc.set("Carboidratos(g): {0}".format(self.dici['carboidratos a serem consumidos']))
+            self.cp.set("Proteinas(g): {0}".format(self.dici['proteinas a serem consumidos']))
+            self.cg.set("Gorduras(g): {0}".format(self.dici['gorduras a serem consumidos']))
         
    #métodos do programa
     
@@ -876,7 +876,7 @@ class Projeto_Final:
     def ConsumoCarbo(self):        
         
         self.carbo_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][0]*float(self.quantidade.get()))/100
-        self.variavel_carbo_consumido += self.carbo_alimento_quantidade
+        self.variavel_carbo_consumido += (self.carbo_alimento_quantidade/2)
         self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.variavel_carbo_consumido))
         self.ultimo_alimento_carbo.set(self.carbo_alimento_quantidade)        
         return self.carbo_alimento_quantidade
@@ -886,7 +886,7 @@ class Projeto_Final:
     def ConsumoProteina(self):
         
         self.prot_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][1]*float(self.quantidade.get()))/100
-        self.variavel_prot_consumido += self.prot_alimento_quantidade
+        self.variavel_prot_consumido += (self.prot_alimento_quantidade/2)
         self.prot_consumidos.set("Proteinas(g): {0}".format(self.variavel_prot_consumido))
         self.ultimo_alimento_prot.set(self.prot_alimento_quantidade)
         return self.prot_alimento_quantidade
@@ -894,7 +894,7 @@ class Projeto_Final:
         
     def ConsumoGordura(self):
         self.gord_alimento_quantidade = (self.comidas[self.v1.get()][self.v2.get()][2]*float(self.quantidade.get()))/100
-        self.variavel_gord_consumido += self.gord_alimento_quantidade
+        self.variavel_gord_consumido += (self.gord_alimento_quantidade/2)
         self.gordura_consumidos.set("Gorduras(g): {0}".format(self.variavel_gord_consumido))
         self.ultimo_alimento_gord.set(self.gord_alimento_quantidade)
         return self.gord_alimento_quantidade
@@ -913,9 +913,9 @@ class Projeto_Final:
         self.dici['carboidratos consumidas'] = float(self.variavel_carbo_consumido)
         self.dici['proteina consumidos'] = float(self.variavel_prot_consumido)
         self.dici['gordura consumidos'] = float(self.variavel_gord_consumido)
-        self.dici['carboidratos a serem consumidos'] = float(self.c.get())
-        self.dici['proteinas a serem consumidos'] = float(self.p.get())
-        self.dici['gorduras a serem consumidos'] = float(self.g.get())
+        self.dici['carboidratos a serem consumidos'] = (self.c.get())
+        self.dici['proteinas a serem consumidos'] = (self.p.get())
+        self.dici['gorduras a serem consumidos'] =  (self.g.get())
         
         #salvando no pickle
         salvar = open("projeto.pickle", "wb")
