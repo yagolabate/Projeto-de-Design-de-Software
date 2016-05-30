@@ -58,6 +58,10 @@ class Projeto_Final:
         self.ultimo_alimento_carbo = tk.StringVar()
         self.ultimo_alimento_prot = tk.StringVar()
         self.ultimo_alimento_gord = tk.StringVar()
+        
+        self.lista_carbo_consumidos = []
+        self.lista_prot_consumidos = []
+        self.lista_gord_consumidos = []
 
 
         self.genero = tk.StringVar()
@@ -384,7 +388,7 @@ class Projeto_Final:
         self.entry_quan = ttk.Entry(self.pagina3, textvariable = self.quantidade)
         self.entry_quan.grid(row = 5, column = 3)
         
-        self.listbox_ad = tk.Listbox(self.pagina3, width=100)  
+        self.listbox_ad = tk.Listbox(self.pagina3, selectmode = tk.SINGLE, width=100)  
         self.listbox_ad.grid(row = 8, column = 0, columnspan = 4, sticky = 'nsw')
         #self.listbox_ad.configure(yscrollcommand=self.scrollbar_ad.set)
         
@@ -812,39 +816,48 @@ class Projeto_Final:
             return self.nutrientes
             
     def clicar_adicionar(self):
-        self.lista_alimentos_consumidos.append([Decimal(self.ConsumoCarbo().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)),Decimal(self.ConsumoProteina().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)),Decimal(self.ConsumoGordura().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP))])
         self.listbox_ad.insert(tk.END, "{0}:      Carboidratos: {1}      Proteinas: {2}      Gorduras: {3}".format(self.v2.get(),Decimal(self.ConsumoCarbo().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)),Decimal(self.ConsumoProteina().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)),Decimal(self.ConsumoGordura().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP))))
-        
+        self.lista_carbo_consumidos.append(Decimal(self.ConsumoCarbo().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)))    
+        self.lista_prot_consumidos.append(Decimal(self.ConsumoProteina().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)))
+        self.lista_gord_consumidos.append(Decimal(self.ConsumoGordura().quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)))
+        print(self.lista_carbo_consumidos)
+        print(self.carbo_alimento_quantidade)
         
         
     def clicar_remover(self):
-      #  if len(self.lista_alimentos_consumidos) == 0:
-      #      return
+              
+        if self.listbox_ad.size() > 0: 
+            #removendo os macronutrientes das labels
+            if self.listbox_ad.curselection() != ():
+                self.variavel_carbo_consumido -= Decimal(float(self.lista_carbo_consumidos[self.listbox_ad.curselection()[0]])).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
+                self.carbo_consumidos.set("Carboidratos(g): {0}" .format(self.variavel_carbo_consumido))
+                del self.lista_carbo_consumidos[self.listbox_ad.curselection()[0]]
+                self.variavel_prot_consumido -= Decimal(float(self.lista_prot_consumidos[self.listbox_ad.curselection()[0]])).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
+                self.prot_consumidos.set("Proteinas(g): {0}" .format(self.variavel_prot_consumido))
+                del self.lista_prot_consumidos[self.listbox_ad.curselection()[0]]                
+                self.variavel_gord_consumido -= self.lista_gord_consumidos[self.listbox_ad.curselection()[0]]
+                self.gordura_consumidos.set("Gorduras(g): {0}" .format(Decimal(self.variavel_gord_consumido.quantize(Decimal('.0001'), rounding=ROUND_HALF_UP))))
+                del self.lista_gord_consumidos[self.listbox_ad.curselection()[0]]                
             
-      #  ultimo_alimento = self.lista_alimentos_consumidos[-1]
-      # ultimo_carbo = ultimo_alimento[0]
-      # ultimo_prot = ultimo_alimento[1]
-      # ultimo_gord = ultimo_alimento[2]
-        
-        if self.listbox_ad.size() > 0:      
-            self.variavel_carbo_consumido -= Decimal(float(self.ultimo_alimento_carbo.get())).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
-            self.carbo_consumidos.set("Carboidratos(g): {0}" .format(self.variavel_carbo_consumido))
-            self.variavel_prot_consumido -= Decimal(float(self.ultimo_alimento_prot.get())).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
-            self.prot_consumidos.set("Proteinas(g): {0}" .format(self.variavel_prot_consumido))
-            self.variavel_gord_consumido -= Decimal(float(self.ultimo_alimento_gord.get())).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
-            self.gordura_consumidos.set("Gorduras(g): {0}" .format(self.variavel_gord_consumido))
-            self.listbox_ad.delete(tk.END)
+            print(self.lista_carbo_consumidos)
+            #removendo os macronutrientes e alimentos da listbox            
+            items = self.listbox_ad.curselection()
+            pos = 0
+            for i in items :
+                idx = int(i) - pos
+                self.listbox_ad.delete( idx,idx )
+                pos = pos + 1
         else:
             return
         
-        
+         
         
     def ConsumoCarbo(self):        
         
         self.carbo_alimento_quantidade = Decimal((self.comidas[self.v1.get()][self.v2.get()][0]*float(self.quantidade.get()))/100)
         self.variavel_carbo_consumido += Decimal(self.carbo_alimento_quantidade/2).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
         self.carbo_consumidos.set("Carboidratos(g): {0}".format(self.variavel_carbo_consumido))
-        self.ultimo_alimento_carbo.set(self.carbo_alimento_quantidade)       
+       # self.lista_carbo_consumidos.append(self.carbo_alimento_quantidade)         
         return self.carbo_alimento_quantidade
      
         
@@ -854,7 +867,7 @@ class Projeto_Final:
         self.prot_alimento_quantidade = Decimal((self.comidas[self.v1.get()][self.v2.get()][1]*float(self.quantidade.get()))/100)
         self.variavel_prot_consumido += (self.prot_alimento_quantidade/2).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
         self.prot_consumidos.set("Proteinas(g): {0}".format(self.variavel_prot_consumido))
-        self.ultimo_alimento_prot.set(self.prot_alimento_quantidade)
+       # self.lista_prot_consumidos.append(Decimal(self.prot_alimento_quantidade.quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)))
         return self.prot_alimento_quantidade
         
         
@@ -862,7 +875,7 @@ class Projeto_Final:
         self.gord_alimento_quantidade = Decimal((self.comidas[self.v1.get()][self.v2.get()][2]*float(self.quantidade.get()))/100)
         self.variavel_gord_consumido += Decimal(self.gord_alimento_quantidade/2).quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)
         self.gordura_consumidos.set("Gorduras(g): {0}".format(self.variavel_gord_consumido))
-        self.ultimo_alimento_gord.set(self.gord_alimento_quantidade)
+        #self.lista_gord_consumidos.append(Decimal(self.gord_alimento_quantidade.quantize(Decimal('.0001'), rounding=ROUND_HALF_UP)))
         return self.gord_alimento_quantidade
 
         
