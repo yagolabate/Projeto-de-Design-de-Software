@@ -400,6 +400,31 @@ class Projeto_Final:
         self.botao_finalizar.configure(text = 'Finalizar o dia')
         self.botao_finalizar.configure(command = self.clicar_finalizar)
         
+                                        # Quarta frame
+        self.pagina4 = tk.Frame(self.window)
+        
+        self.pagina4.rowconfigure(0, minsize = 200)
+        self.pagina4.columnconfigure(0, minsize = 300)
+        self.pagina4.rowconfigure(1, minsize = 200)
+        self.pagina4.columnconfigure(1, minsize = 300)
+        self.pagina4.columnconfigure(2, minsize = 300)
+        self.pagina4.grid(row=0, column=0, sticky="nsew")
+        self.pagina4.configure(background = 'light blue')
+        
+        self.Agradecimento = tk.Label(self.pagina4)
+        self.Agradecimento.grid(row = 0, column = 0, columnspan = 3,  sticky="nsew")
+        self.Agradecimento.configure(text = "Obrigado por utilizar nosso programa", font = "ComicSansMS 30")
+        self.Agradecimento.configure(background = 'light blue')
+        
+        self.Sair = ttk.Button(self.pagina4, width=20)
+        self.Sair.grid(row = 1, column = 1, columnspan = 2)
+        self.Sair.configure(text = "Sair", command = self.window.quit)
+        
+        self.NovoDia = ttk.Button(self.pagina4, width=20)
+        self.NovoDia.grid(row = 1, column = 0, columnspan = 2,)
+        self.NovoDia.configure(text = "Novo dia", command = self.Novo_Dia)
+        
+        
         #Chamando a primeira frame
         if self.inicio == 0:
             self.pagina1.tkraise() 
@@ -440,6 +465,15 @@ class Projeto_Final:
     def atualiza_combo(self, event):
         print("atualiza_combo")
         
+        
+        
+   # A seguir, estão as funcoes que calculam as quantidades de cada macro nutriente que 
+   # o usuario consumirá dependendo da sua idade, genero, altura, peso e nivel de ativi-
+   # dade física:
+        
+        
+        
+        
     def clicar_sedentario(self):
         o = int(self.objetivo_escolhido.get())
         g = self.combo_value.get()
@@ -463,10 +497,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -475,10 +515,21 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
-                self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
         else:
@@ -488,10 +539,22 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
-                self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
+                self.g.set(self.gord)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -500,10 +563,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
 
@@ -533,10 +602,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -545,10 +620,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
         else:
@@ -558,10 +639,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -570,10 +657,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
 
@@ -601,10 +694,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -613,10 +712,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
         else:
@@ -626,10 +731,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -638,10 +749,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
 
@@ -669,10 +786,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -681,10 +804,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
         else:
@@ -694,10 +823,21 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
-                self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -706,10 +846,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
 
@@ -743,10 +889,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -755,10 +907,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
         else:
@@ -768,10 +926,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
             elif g == 'Feminino':
@@ -780,10 +944,16 @@ class Projeto_Final:
                 self.p.set(self.prot)
                 self.carbo= (self.k*0.6)/4
                 self.c.set(self.carbo)
+                self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                if self.gord < 0:
+                    self.gord = 0
+                else:
+                    self.gord = int((self.k-(self.prot*4)-(self.carbo*4))/9)
+                self.g.set(self.gord)
                 self.g.set((self.k-(self.prot*4)-(self.carbo*4))/9)
                 self.cc.set("Carboidratos(g): {0}".format(int(self.carbo)))
                 self.cp.set("Proteinas(g): {0}".format(int(self.prot)))
-                self.cg.set("Gorduras(g): {0}".format(int((self.k-(self.prot*4)-(self.carbo*4))/9)))
+                self.cg.set("Gorduras(g): {0}".format(self.gord))
                 self.pagina3.tkraise()
                 self.inicio = 1
                 
@@ -909,7 +1079,35 @@ class Projeto_Final:
         salvar = open("projeto.pickle", "wb") 
         pickle.dump(self.dici, salvar)
         salvar.close()
-        self.window.quit() 
+        
+        self.pagina4.tkraise() 
+    
+    
+    # Função que é ativada ao clicar o botão "Novo dia". Ela faz com que o usuario volte a 
+    # pagina 3 e zera tudo o que foi consumido
+    def Novo_Dia(self):
+        
+        self.pagina3.tkraise()
+        self.variavel_carbo_consumido = 0
+        self.variavel_prot_consumido = 0
+        self.variavel_gord_consumido = 0
+        
+        self.carbo_consumidos.set("Carboidratos(g): 0")
+        self.prot_consumidos.set("Proteinas(g): 0")
+        self.gordura_consumidos.set("Gorduras(g): 0")
+        
+        del self.lista_carbo_consumidos[:]
+        del self.lista_prot_consumidos[:]
+        del self.lista_gord_consumidos[:]
+        self.d1 = ttk.OptionMenu(self.pagina3, self.v1, "Escolha a categoria", *self.categorias_comida, command=self.option_1_selected)
+        self.d2 = ttk.OptionMenu(self.pagina3, self.v2, "Escolha a comida", *self.comidas_na_categoria, command=self.option_2_selected)
+        self.quantidade.set("")
+        print(self.lista_carbo_consumidos)
+        
+        
+        self.listbox_ad.delete(0,tk.END)
+        
+           
         
 
             
