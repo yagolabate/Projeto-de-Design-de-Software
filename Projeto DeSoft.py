@@ -88,54 +88,7 @@ class Projeto_Final:
         self.comidas_na_categoria = [c for c in self.comidas[self.categoria_comida_inicial]]
         self.comida_inicial = self.comidas_na_categoria[0]    
         
-        
-        #cadastro de usuario
-        
-        
-        
-        '''self.pagina0 = tk.Frame(self.window)
-        self.pagina0.rowconfigure(0, minsize = 250)
-        self.pagina0.rowconfigure(1, minsize = 50)
-        self.pagina0.rowconfigure(2, minsize = 50)
-        self.pagina0.rowconfigure(3, minsize = 200)
-        self.pagina0.rowconfigure(4, minsize = 50)
-        self.pagina0.columnconfigure(0 ,minsize = 400)
-        self.pagina0.columnconfigure(1, minsize = 500)
-        self.pagina0.grid(row=0,column=0, sticky="nsew")
-        self.pagina0.configure(background = 'light blue')
-        
-        self.ltitulo = ttk.Label(self.pagina0)
-        self.ltitulo.grid(row = 0, columnspan = 2, sticky = '')
-        self.ltitulo.configure(text = 'Bem vindo ao nosso programa:', font = 100, background = 'light blue')
-        
-        self.llogin = ttk.Label(self.pagina0)
-        self.llogin.grid(row = 1, column = 0, sticky = 'e')
-        self.llogin.configure(text = "Login:", background = 'light blue')
-        
-        self.blogin = ttk.Entry(self.pagina0)
-        self.blogin.grid(row = 1, column = 1, sticky = 'w')
-        
-        self.lsenha = ttk.Label(self.pagina0)
-        self.lsenha.grid(row = 2, column = 0, sticky = 'e')
-        self.lsenha.configure(text = "Senha:", background = 'light blue')
-        
-        self.bsenha = ttk.Entry(self.pagina0)
-        self.bsenha.grid(row = 2, column = 1, sticky = 'w')
-        
-        self.bseguinte = ttk.Button(self.pagina0)
-        self.bseguinte.grid(row = 4, column = 1, sticky = 'e')
-        self.bseguinte.configure(text = "Seguinte", )
-        self.bseguinte.configure(command = self.clicar_seguinte)
-        
-        self.ir_pagina_3 = tk.Button(self.pagina0)
-        self.ir_pagina_3.grid(row=4,column=0,sticky="nsew")
-        self.ir_pagina_3.configure(text="PAGINA 3")
-        self.ir_pagina_3.configure(command=self.irpagina3)'''
-        
-        
-        
-        
-        
+
         
         
                                       # Primeira frame
@@ -248,7 +201,7 @@ class Projeto_Final:
         #de física
         self.lfrase = tk.Label(self.pagina2)
         self.lfrase.grid(row=2,column=2,columnspan=3, sticky='nsew')
-        self.lfrase.configure(fg="black", text="Selecione seu nivel de atividade fisica:", background = 'light blue')
+        self.lfrase.configure(fg="black", text="Selecione seu nivel de atividade fisica:",font ="ComicSansMS 16", background = 'light blue')
         
         # Botões que possibilitarão ao usuario escolher seu nivel de atividade fisica
         
@@ -286,27 +239,27 @@ class Projeto_Final:
     
         self.legenda1 = tk.Label(self.pagina2)
         self.legenda1.grid(row = 4, column = 1, sticky = '')
-        self.legenda1.configure(fg = 'black', text = 'sedentário', background = 'light blue')
+        self.legenda1.configure(fg = 'black', text = 'Sedentário', background = 'light blue')
         ttp.CreateToolTip(self.legenda1, 'Pouco ou nenhum exercício diário.')
                        
         self.legenda2 = tk.Label(self.pagina2)
         self.legenda2.grid(row = 4, column = 3, sticky = '')
-        self.legenda2.configure(fg = 'black', text = 'levemente ativo', background = 'light blue')
+        self.legenda2.configure(fg = 'black', text = 'Levemente ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda2, 'Exercício leve durante 1 a 3 dias por semana.')
         
         self.legenda3 = tk.Label(self.pagina2)
         self.legenda3.grid(row = 4, column = 5, sticky = '')
-        self.legenda3.configure(fg = 'black', text = 'moderadamente ativo', background = 'light blue')
+        self.legenda3.configure(fg = 'black', text = 'Moderadamente ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda3, 'Exercício moderado durante 3 a 5 dias por semana')
         
         self.legenda4 = tk.Label(self.pagina2)
         self.legenda4.grid(row = 6, column = 1, sticky = 'nsew')
-        self.legenda4.configure(fg = 'black', text = 'muito ativo', background = 'light blue')
+        self.legenda4.configure(fg = 'black', text = 'Muito ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda4, 'Exercício intenso durante 6 a 7 dias na semana')        
         
         self.legenda5 = tk.Label(self.pagina2)
         self.legenda5.grid(row = 6, column = 3, sticky = 'nsew')
-        self.legenda5.configure(fg = 'black', text = 'extremamente ativo', background = 'light blue')
+        self.legenda5.configure(fg = 'black', text = 'Extremamente ativo', background = 'light blue')
         ttp.CreateToolTip(self.legenda5, 'Exercício intenso todos os dias da semana ou com treinos bi-diários')
 
         # Botão que permite ao usuario voltar à primeira pagina, caso queira modificar 
